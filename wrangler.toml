@@ -1,0 +1,7 @@
+name = "rekayasa-manufaktur"
+compatibility_date = "2026-09-25"
+pages_build_output_dir = "web/out"
+
+[[kv_namespaces]]
+binding = "RATE_LIMIT"
+id = "9fa6bfe8d84e4a0a8b38b0ac8d9c5681"

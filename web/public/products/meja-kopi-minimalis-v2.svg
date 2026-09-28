@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="750" viewBox="0 0 600 750" role="img" aria-label="Meja Kopi Minimalis">
+  
+      <defs>
+        <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#0A1929"/>
+          <stop offset="55%" stop-color="#1E3A5F"/>
+          <stop offset="100%" stop-color="#2563EB"/>
+        </linearGradient>
+        <radialGradient id="glow" cx="50%" cy="38%" r="60%">
+          <stop offset="0%" stop-color="#3B82F6" stop-opacity="0.25"/>
+          <stop offset="100%" stop-color="#3B82F6" stop-opacity="0"/>
+        </radialGradient>
+        <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="#FFFFFF" stroke-width="1" opacity="0.12"/></pattern>
+        <linearGradient id="shade" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#000" stop-opacity="0.28"/>
+          <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+        </linearGradient>
+      </defs>
+      <rect width="600" height="750" fill="url(#bg)"/>
+      <rect width="600" height="750" fill="url(#glow)"/>
+      <rect width="600" height="750" fill="url(#grid)"/>
+      <rect width="600" height="750" fill="url(#shade)"/>
+      <rect x="20" y="20" width="560" height="710" fill="none"
+            stroke="#fff" stroke-width="1" opacity="0.15"/>
+    
+  <g transform="translate(0,-4)"><g transform="translate(252.0,327.0)"><path d="M16 40 h64" stroke="white" stroke-width="3" stroke-linecap="round"/><path d="M22 40 v-10 a6 6 0 0 1 6 -6 h40 a6 6 0 0 1 6 6 v10" fill="none" stroke="white" stroke-width="3"/><line x1="34" y1="40" x2="30" y2="80" stroke="white" stroke-width="3" stroke-linecap="round"/><line x1="62" y1="40" x2="66" y2="80" stroke="white" stroke-width="3" stroke-linecap="round"/></g></g>
+  <text x="32" y="56" font-family="ui-sans-serif, system-ui, sans-serif" font-size="15"
+        font-weight="600" fill="#fff" opacity="0.55" letter-spacing="2">REKAYASA MANUFAKTUR</text>
+  <text x="32" y="710" font-family="ui-sans-serif, system-ui, sans-serif"
+        font-size="22" font-weight="700" fill="#fff">Variant 2</text>
+  <text x="32" y="736" font-family="ui-sans-serif, system-ui, sans-serif"
+        font-size="13" fill="#fff" opacity="0.5">Engineering placeholder — meja</text>
+</svg>

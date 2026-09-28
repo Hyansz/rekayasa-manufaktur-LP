@@ -1,0 +1,368 @@
+{
+  "categories": [
+    { "id": "semua", "name": "Semua", "slug": "semua" },
+    { "id": "kursi", "name": "Kursi", "slug": "kursi" },
+    { "id": "meja", "name": "Meja", "slug": "meja" },
+    { "id": "rak", "name": "Rak & Penyimpanan", "slug": "rak" },
+    { "id": "tempat-tidur", "name": "Tempat Tidur", "slug": "tempat-tidur" },
+    { "id": "aksesoris", "name": "Aksesoris", "slug": "aksesoris" }
+  ],
+  "products": [
+    {
+      "id": "krs-001",
+      "name": "Kursi Minimalis Stainless Steel",
+      "slug": "kursi-minimalis-stainless-steel",
+      "category": "kursi",
+      "categoryName": "Kursi",
+      "price": "Rp 2.850.000",
+      "sku": "RM-KRS-001",
+      "featured": false,
+      "materialGrade": "SS 201",
+      "highlights": [
+        "Rangka stainless steel kokoh",
+        "Finishing powder coating tahan lama",
+        "Cocok untuk ruang kerja, kafe & ruang tamu"
+      ],
+      "image": "/products/kursi-minimalis-alumunium.svg",
+      
+      "gallery": [
+        "/products/kursi-minimalis-alumunium.svg",
+        "/products/kursi-minimalis-alumunium-v2.svg",
+        "/products/kursi-minimalis-alumunium-v3.svg"
+      ],
+      "description": "Kursi minimalis dengan rangka stainless steel yang kokoh. Finishing powder coating memberikan tampilan premium yang tahan lama. Cocok untuk ruang kerja modern, kafe, atau ruang tamu kontemporer.",
+      "specs": [
+        { "label": "Material", "value": "Stainless Steel SS 201, Jok Synthetic Leather" },
+        { "label": "Dimensi", "value": "55 x 52 x 82 cm (P x L x T)" },
+        { "label": "Berat", "value": "4.2 kg" },
+        { "label": "Finishing", "value": "BA (Bright Annealed)" },
+        { "label": "Kapasitas", "value": "120 kg" },
+        { "label": "Garansi", "value": "5 Tahun Struktural" }
+      ],
+      "related": ["krs-002", "mja-001", "aks-001"]
+    },
+    {
+      "id": "krs-002",
+      "name": "Kursi Bar Stool Industrial",
+      "slug": "kursi-bar-stool-industrial",
+      "category": "kursi",
+      "categoryName": "Kursi",
+      "price": "Rp 1.950.000",
+      "sku": "RM-KRS-002",
+      "featured": false,
+      "materialGrade": "Stainless Steel",
+      "highlights": [
+        "Kaki profil kotak yang kokoh",
+        "Tinggi adjustable 65–75 cm",
+        "Footrest ergonomis & base anti-slip"
+      ],
+      "image": "/products/kursi-bar-stool-industrial.svg",
+      
+      "gallery": [
+        "/products/kursi-bar-stool-industrial.svg",
+        "/products/kursi-bar-stool-industrial-v2.svg",
+        "/products/kursi-bar-stool-industrial-v3.svg"
+      ],
+      "description": "Bar stool industrial dengan kaki stainless steel profil kotak yang kokoh. Tinggi adjustable 65-75 cm. Footrest ergonomis dan base anti-slip. Desain timeless untuk kitchen island atau mini bar.",
+      "specs": [
+        { "label": "Material", "value": "Stainless Steel Profile 40x40mm, Seat Kayu Jati" },
+        { "label": "Dimensi", "value": "40 x 40 x 65-75 cm" },
+        { "label": "Berat", "value": "3.8 kg" },
+        { "label": "Finishing", "value": "Powder Coat Matte Black / Silver" },
+        { "label": "Kapasitas", "value": "150 kg" },
+        { "label": "Garansi", "value": "3 Tahun" }
+      ],
+      "related": ["krs-001", "mja-002", "aks-002"]
+    },
+    {
+      "id": "mja-001",
+      "name": "Meja Kerja Standing Desk",
+      "slug": "meja-kerja-standing-desk",
+      "category": "meja",
+      "categoryName": "Meja",
+      "price": "Rp 5.500.000",
+      "sku": "RM-MJA-001",
+      "featured": false,
+      "materialGrade": "Stainless Steel",
+      "highlights": [
+        "Frame stabil dengan kapasitas 100 kg",
+        "Motor dual lifting system (70–120 cm)",
+        "Top table pilihan HPL / solid wood"
+      ],
+      "image": "/products/meja-kerja-standing-desk.svg",
+      
+      "gallery": [
+        "/products/meja-kerja-standing-desk.svg",
+        "/products/meja-kerja-standing-desk-v2.svg",
+        "/products/meja-kerja-standing-desk-v3.svg"
+      ],
+      "description": "Standing desk dengan frame stainless steel 4080 yang sangat stabil. Motor dual lifting system, height range 70-120 cm. Control panel digital dengan memory preset. Top table pilihan: HPL atau solid wood.",
+      "specs": [
+        { "label": "Material Frame", "value": "Stainless Steel 4080, Steel Bracket" },
+        { "label": "Top Table", "value": "HPL 25mm / Solid Wood 30mm (Pilihan)" },
+        { "label": "Dimensi", "value": "140 x 70 cm (customizable)" },
+        { "label": "Height Range", "value": "70 - 120 cm" },
+        { "label": "Speed", "value": "35 mm/s" },
+        { "label": "Load Capacity", "value": "100 kg" },
+        { "label": "Garansi", "value": "5 Tahun Motor, 10 Tahun Frame" }
+      ],
+      "related": ["krs-001", "rak-001", "aks-001"]
+    },
+    {
+      "id": "mja-002",
+      "name": "Meja Guru dan Kabinet",
+      "slug": "meja-guru",
+      "category": "meja",
+      "categoryName": "Meja",
+      "price": "Rp 3.200.000",
+      "sku": "RM-MJA-002",
+      "featured": true,
+      "materialGrade": "Stainless Steel",
+      "highlights": [
+        "Kaki profil kuat untuk pemakaian harian",
+        "Konstruksi presisi, stabil & mudah dirawat",
+        "Top table HPL / kayu jati solid"
+      ],
+      "image": "/products/meja-guru.webp",
+      
+      "gallery": [
+        "/products/meja-guru.webp",
+        "/products/meja-guru-2.webp"
+      ],
+      "description": "Meja guru dengan top table kokoh dan kaki stainless steel profil kuat, dirancang untuk intensitas pemakaian harian di ruang kelas maupun ruang kerja. Konstruksi presisi yang stabil, rapi, dan mudah dirawat.",
+      "specs": [
+        { "label": "Material Kaki", "value": "Stainless Steel Profile 20x20mm" },
+        { "label": "Top", "value": "HPL 25mm / Kayu Jati Solid" },
+        { "label": "Dimensi", "value": "120 x 60 x 75 cm" },
+        { "label": "Berat", "value": "12 kg" },
+        { "label": "Finishing", "value": "BA (Bright Annealed) / Powder Coat" },
+        { "label": "Garansi", "value": "3 Tahun" }
+      ],
+      "related": ["krs-002", "mja-001", "aks-002"]
+    },
+    {
+      "id": "rak-001",
+      "name": "Rak Buku Modular Stainless Steel",
+      "slug": "rak-buku-modular-stainless-steel",
+      "category": "rak",
+      "categoryName": "Rak & Penyimpanan",
+      "price": "Rp 4.100.000",
+      "sku": "RM-RAK-001",
+      "featured": false,
+      "materialGrade": "Stainless Steel",
+      "highlights": [
+        "Sistem modular & mudah diperluas",
+        "Load 50 kg per tingkat",
+        "Cocok untuk kantor, studio & perpustakaan"
+      ],
+      "image": "/products/rak-buku-modular-alumunium.svg",
+      
+      "gallery": [
+        "/products/rak-buku-modular-alumunium.svg",
+        "/products/rak-buku-modular-alumunium-v2.svg",
+        "/products/rak-buku-modular-alumunium-v3.svg"
+      ],
+      "description": "Sistem rak modular berbasis stainless steel 4040. Mudah dirakit, disesuaikan, dan diperluas. Shelf dari multiplex berkualitas dengan finishing HPL. Sempurna untuk kantor, studio, atau perpustakaan rumah.",
+      "specs": [
+        { "label": "Material Frame", "value": "Stainless Steel 4040, T-slot" },
+        { "label": "Shelf", "value": "Multiplex 18mm + HPL" },
+        { "label": "Dimensi", "value": "120 x 40 x 180 cm (4 tingkat)" },
+        { "label": "Berat", "value": "22 kg" },
+        { "label": "Load per Shelf", "value": "50 kg" },
+        { "label": "Finishing", "value": "BA (Bright Annealed) / Powder Coat" },
+        { "label": "Garansi", "value": "10 Tahun Frame" }
+      ],
+      "related": ["mja-001", "rak-002", "aks-001"]
+    },
+    {
+      "id": "rak-002",
+      "name": "Trolley S",
+      "slug": "trolley-s",
+      "category": "rak",
+      "categoryName": "Rak & Penyimpanan",
+      "price": "Rp 1.450.000",
+      "sku": "RM-RAK-002",
+      "featured": true,
+      "materialGrade": "Stainless Steel",
+      "highlights": [
+        "2 tingkat rak, ringan & kokoh",
+        "Roda karet halus tidak merusak lantai",
+        "Cocok untuk rumah, kafe & workspace"
+      ],
+      "image": "/products/trolley-s.webp",
+      "gallery": [
+        "/products/trolley-s.webp",
+        "/products/trolley-s-2.webp"
+      ],
+      "description": "Trolley serbaguna berbentuk S dengan rak bertingkat dari stainless steel berkonstruksi ringan namun kokoh. Cocok untuk memindahkan barang di rumah, kafe, studio, maupun workspace. Roda karet halus yang tidak merusak lantai.",
+      "specs": [
+        { "label": "Material", "value": "Stainless Steel Profile + PP Shelf" },
+        { "label": "Dimensi", "value": "42 x 25 x 80 cm (3 tingkat)" },
+        { "label": "Berat", "value": "4.1 kg" },
+        { "label": "Kapasitas", "value": "30 kg" },
+        { "label": "Finishing", "value": "Powder Coat White / Black" },
+        { "label": "Garansi", "value": "3 Tahun" }
+      ],
+      "related": ["rak-001", "aks-002", "mja-002"]
+    },
+    {
+      "id": "aks-001",
+      "name": "Lampu Meja Industrial Stainless Steel",
+      "slug": "lampu-meja-industrial-stainless-steel",
+      "category": "aksesoris",
+      "categoryName": "Aksesoris",
+      "price": "Rp 890.000",
+      "sku": "RM-AKS-001",
+      "featured": false,
+      "materialGrade": "SS 304",
+      "highlights": [
+        "Arm adjustable 360°",
+        "Socket E27, compatible smart bulb",
+        "Body stainless steel CNC machined"
+      ],
+      "image": "/products/lampu-meja-industrial-alumunium.svg",
+      
+      "gallery": [
+        "/products/lampu-meja-industrial-alumunium.svg",
+        "/products/lampu-meja-industrial-alumunium-v2.svg",
+        "/products/lampu-meja-industrial-alumunium-v3.svg"
+      ],
+      "description": "Lampu meja dengan body stainless steel CNC machined. Arm adjustable 360°. Socket E27, compatible dengan smart bulb. Switch inline dengan dimmer. Desain industrial yang fungsional.",
+      "specs": [
+        { "label": "Material", "value": "Stainless Steel SS 304 CNC" },
+        { "label": "Dimensi", "value": "Base 15cm, Arm 40cm" },
+        { "label": "Berat", "value": "1.8 kg" },
+        { "label": "Socket", "value": "E27, Max 60W" },
+        { "label": "Switch", "value": "Inline Dimmer" },
+        { "label": "Finishing", "value": "Bead Blast + Powder Coat Black" },
+        { "label": "Garansi", "value": "2 Tahun" }
+      ],
+      "related": ["mja-001", "krs-001", "aks-002"]
+    },
+    {
+      "id": "aks-002",
+      "name": "Gantungan Dinding Minimalis",
+      "slug": "gantungan-dinding-minimalis",
+      "category": "aksesoris",
+      "categoryName": "Aksesoris",
+      "price": "Rp 350.000",
+      "sku": "RM-AKS-002",
+      "featured": false,
+      "materialGrade": "SS 304",
+      "highlights": [
+        "Tahan beban hingga 10 kg per hook",
+        "Hook ergonomis + hardware included",
+        "Set 3 pcs, tampilan minimalis"
+      ],
+      "image": "/products/gantungan-dinding-minimalis.svg",
+      
+      "gallery": [
+        "/products/gantungan-dinding-minimalis.svg",
+        "/products/gantungan-dinding-minimalis-v2.svg",
+        "/products/gantungan-dinding-minimalis-v3.svg"
+      ],
+      "description": "Set gantungan dinding 3 pcs dari stainless steel. Hook design yang ergonomis. Mounting hardware included. Tahan beban hingga 10kg per hook. Tampilan minimalis untuk entryway atau kamar.",
+      "specs": [
+        { "label": "Material", "value": "Stainless Steel SS 304" },
+        { "label": "Dimensi", "value": "12 x 3 x 8 cm (per hook)" },
+        { "label": "Berat", "value": "0.4 kg (set 3 pcs)" },
+        { "label": "Load", "value": "10 kg per hook" },
+        { "label": "Finishing", "value": "BA / HL (Hairline) / Powder Coat" },
+        { "label": "Garansi", "value": "2 Tahun" }
+      ],
+      "related": ["rak-002", "krs-002", "aks-001"]
+    },
+    {
+      "id": "mja-003",
+      "name": "Set Meja & Kursi Belajar",
+      "slug": "meja-kursi-belajar",
+      "category": "meja",
+      "categoryName": "Meja",
+      "price": "Rp 2.750.000",
+      "sku": "RM-MJA-003",
+      "featured": true,
+      "materialGrade": "Stainless Steel",
+      "highlights": [
+        "Top table HPL anti-gores",
+        "Rangka stainless steel yang stabil",
+        "Kursi ergonomis untuk aktivitas harian"
+      ],
+      "image": "/products/meja-kursi.webp",
+      
+      "gallery": [
+        "/products/meja-kursi.webp",
+        "/products/meja-kursi-2.webp",
+        "/products/meja-kursi-3.webp",
+        "/products/meja-kursi-4.webp"
+      ],
+      "description": "Set meja dan kursi belajar dengan rangka stainless steel profil kokoh namun stabil. Top table HPL anti-gores dan kursi ergonomis yang nyaman untuk aktivitas belajar harian di rumah maupun kantor.",
+      "specs": [
+        { "label": "Material Frame", "value": "Stainless Steel Profile 40x40mm" },
+        { "label": "Top Table", "value": "HPL 25mm Anti-Gores" },
+        { "label": "Dimensi Meja", "value": "120 x 60 x 75 cm" },
+        { "label": "Kursi", "value": "Seat Stainless Steel + Jok Fabric" },
+        { "label": "Finishing", "value": "Powder Coat White / Black" },
+        { "label": "Garansi", "value": "3 Tahun" }
+      ],
+      "related": ["krs-001", "mja-001", "aks-001"]
+    },
+    {
+      "id": "trt-001",
+      "name": "Tempat Tidur Susun Cabinet",
+      "slug": "tempat-tidur-susun-cabinet",
+      "category": "tempat-tidur",
+      "categoryName": "Tempat Tidur",
+      "price": "Rp 6.500.000",
+      "sku": "RM-TRT-001",
+      "featured": true,
+      "materialGrade": "Stainless Steel",
+      "highlights": [
+        "Frame kokoh, anti-karat & tahan lama",
+        "Sambungan presisi tanpa gemeretak",
+        "Mudah dibongkar pasang saat pindah"
+      ],
+      "image": "/products/tempat-tidur.webp",
+      
+      "gallery": [
+        "/products/tempat-tidur.webp",
+        "/products/tempat-tidur-2.webp",
+        "/products/tempat-tidur-3.webp",
+        "/products/tempat-tidur-4.webp",
+        "/products/tempat-tidur-5.webp"
+      ],
+      "description": "Ranjang dengan frame stainless steel yang kokoh, anti-karat, dan tahan pemakaian jangka panjang. Sambungan presisi tanpa gemeretak, finishing rapi, dan mudah dirakit ulang saat pindah rumah.",
+      "specs": [
+        { "label": "Material Frame", "value": "Stainless Steel 4040" },
+        { "label": "Ukuran", "value": "200 x 160 x 90 cm (Queen)" },
+        { "label": "Berat", "value": "28 kg" },
+        { "label": "Kapasitas", "value": "350 kg" },
+        { "label": "Finishing", "value": "Powder Coat Matte" },
+        { "label": "Garansi", "value": "5 Tahun Frame" }
+      ],
+      "related": ["mja-001", "rak-001", "aks-001"]
+    }
+  ],
+  "testimonials": [
+    {
+      "id": 1,
+      "quote": "Kualitas furnitur stainless steel Rekayasa Manufaktur luar biasa. Presisi engineering-nya terasa di setiap detail. Kami sudah memesan 50 set kursi untuk coworking space kami.",
+      "author": "Budi Santoso",
+      "role": "Founder, CoSpace Indonesia",
+      "avatar": "/avatars/1.svg"
+    },
+    {
+      "id": 2,
+      "quote": "Standing desk-nya sangat stabil bahkan di ketinggian maksimal. Frame stainless steel-nya terlihat premium dan build quality-nya setara dengan brand internasional.",
+      "author": "Dewi Anggraini",
+      "role": "Interior Designer, Studio Dua",
+      "avatar": "/avatars/2.svg"
+    }
+  ],
+  "clients": [
+    { "name": "CoSpace", "logo": "/clients/cospace.svg" },
+    { "name": "Studio Dua", "logo": "/clients/studio-dua.svg" },
+    { "name": "Arkana Group", "logo": "/clients/arkana-group.svg" },
+    { "name": "Nusantara Properti", "logo": "/clients/nusantara-properti.svg" },
+    { "name": "Kafe Kita", "logo": "/clients/kafe-kita.svg" }
+  ]
+}

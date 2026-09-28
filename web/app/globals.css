@@ -1,0 +1,255 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: #ffffff;
+  --foreground: #111827;
+  --card: #ffffff;
+  --card-foreground: #111827;
+  --popover: #ffffff;
+  --popover-foreground: #111827;
+  --primary: #1E3A5F;
+  --primary-foreground: #ffffff;
+  --secondary: #F8FAFC;
+  --secondary-foreground: #1E3A5F;
+  --muted: #F1F5F9;
+  --muted-foreground: #475569;
+  --accent: #F1F5F9;
+  --accent-foreground: #111827;
+  --destructive: #dc2626;
+  --border: #E2E8F0;
+  --input: #E2E8F0;
+  --ring: #2563EB;
+  --radius: 0.625rem;
+
+  /* Brand palette */
+  --navy-900: #0A1929;
+  --navy-800: #0F2B4D;
+  --navy-700: #1E3A5F;
+  --navy-600: #2A4A73;
+  --navy-950: #060D1A;
+  --brand-blue: #2563EB;
+  --brand-blue-light: #3B82F6;
+  --brand-blue-dark: #1D4ED8;
+}
+
+.dark {
+  --background: #0A1929;
+  --foreground: #F8FAFC;
+  --card: #0F2B4D;
+  --card-foreground: #F8FAFC;
+  --popover: #0F2B4D;
+  --popover-foreground: #F8FAFC;
+  --primary: #3B82F6;
+  --primary-foreground: #ffffff;
+  --secondary: #1E3A5F;
+  --secondary-foreground: #F8FAFC;
+  --muted: #1E3A5F;
+  --muted-foreground: #94A3B8;
+  --accent: #1E3A5F;
+  --accent-foreground: #F8FAFC;
+  --destructive: #ef4444;
+  --border: #2A4A73;
+  --input: #2A4A73;
+  --ring: #3B82F6;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Brand tokens */
+  --color-navy-900: var(--navy-900);
+  --color-navy-800: var(--navy-800);
+  --color-navy-700: var(--navy-700);
+  --color-navy-600: var(--navy-600);
+  --color-navy-950: var(--navy-950);
+  --color-brand: var(--brand-blue);
+  --color-brand-light: var(--brand-blue-light);
+  --color-brand-dark: var(--brand-blue-dark);
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, monospace;
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    scroll-behavior: smooth;
+    /* Safety net: transform-based reveal animations (GSAP ScrollReveal) must never
+       widen the scrollable area. clip avoids creating a new formatting context,
+       unlike overflow-x: hidden on html/body. */
+    overflow-x: clip;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    overflow-x: clip;
+  }
+  :focus-visible {
+    outline: 2px solid var(--brand-blue);
+    outline-offset: 2px;
+  }
+  ::selection {
+    background: color-mix(in oklch, var(--brand-blue) 20%, transparent);
+    color: var(--foreground);
+  }
+
+  /* Lenis recommended styles: while Lenis is running it drives scrollTop
+     programmatically, so CSS smooth-scroll must be disabled on html or the
+     two fight (page becomes unresponsive / can't reach the bottom). */
+  html.lenis,
+  html.lenis body {
+    height: auto;
+    scroll-behavior: auto !important;
+  }
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+}
+
+@layer utilities {
+  .container-brand {
+    @apply mx-auto w-full max-w-[1280px] px-5 sm:px-6 md:px-8;
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .scrollbar-none {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  .safe-bottom {
+    padding-bottom: 0;
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .pb-safe-cta {
+    padding-bottom: 5.5rem;
+    padding-bottom: calc(
+      env(safe-area-inset-bottom) + 5.5rem
+    );
+  }
+
+  .bg-grid {
+    background-image: linear-gradient(
+        to right,
+        rgb(255 255 255 / 0.06) 1px,
+        transparent 1px
+      ),
+      linear-gradient(to bottom, rgb(255 255 255 / 0.06) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .shadow-brand-sm {
+    box-shadow: 0 1px 2px rgb(15 23 42 / 0.04),
+      0 2px 8px rgb(15 23 42 / 0.05);
+  }
+  .shadow-brand-md {
+    box-shadow: 0 2px 4px rgb(15 23 42 / 0.05),
+      0 6px 20px rgb(15 23 42 / 0.08);
+  }
+  .shadow-brand-lg {
+    box-shadow: 0 4px 8px rgb(15 23 42 / 0.06),
+      0 12px 32px rgb(15 23 42 / 0.12);
+  }
+
+  .fade-edge-x {
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent,
+      #000 16px,
+      #000 calc(100% - 16px),
+      transparent
+    );
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      #000 16px,
+      #000 calc(100% - 16px),
+      transparent
+    );
+  }
+
+  /* 3D floating shapes */
+  .animate-float-3d {
+    animation: float-3d 8s ease-in-out infinite;
+  }
+  @keyframes float-3d {
+    0%,
+    100% {
+      transform: translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    }
+    50% {
+      transform: translate3d(0, -20px, 40px) rotateX(18deg) rotateY(24deg)
+        rotateZ(8deg);
+    }
+  }
+
+  /* Marquee */
+  .animate-marquee {
+    animation: marquee 24s linear infinite;
+  }
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  .marquee-hover:hover .animate-marquee {
+    animation-play-state: paused;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,60 @@
+# Dependencies
+node_modules/
+
+# Next.js build output
+web/.next/
+web/out/
+
+# TypeScript
+*.tsbuildinfo
+web/next-env.d.ts
+
+# Env files
+.env*
+.env.local
+
+# Cloudflare Pages Functions local dev vars (berisi secret, jangan commit)
+.dev.vars
+
+# Cache/state lokal wrangler (jangan commit)
+.wrangler/
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Footage mentah kolase (root) — bahan kerja ±70MB, bukan bagian situs.
+# Trim hasil (web/public/videos|images/process) tetap di-track karena itulah
+# yang di-wire ke build.
+/1. Kolase produksi Rekayasa Manufaktur.mp4
+/2. Kolase produksi Rekayasa Manufaktur.mp4
+/3. Kolase produksi Rekayasa Manufaktur.mp4
+
+# Screenshot/artefak verifikasi kerja (bukan deliverable situs)
+/tempat-tidur*.png
+/logo-rm.jpeg
+/assets/
+/localscan.ps1
+
+# Editor
+.vscode/
+.idea/
+
+# Footage asli kolase (root) — besar & session-local; hasil trim-nya
+# (web/public/videos|images/process) TETAP di-track karena itulah yang di-wire ke build.
+"/1. Kolase produksi Rekayasa Manufaktur.mp4"
+"/2. Kolase produksi Rekayasa Manufaktur.mp4"
+"/3. Kolase produksi Rekayasa Manufaktur.mp4"
+"/logo-rm.jpeg"
+"/tempat-tidur*.png"
+
+# Artefak/skrip verifikasi & rebuild proses (local-working)
+/assets/
+/assets/rebuild-process/
+
+# Artefak tooling lokal (freebuff)
+.freebuff/
