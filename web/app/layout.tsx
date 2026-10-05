@@ -13,7 +13,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://rekayasamanufaktur.id"),
+  metadataBase: new URL("https://rekayasa-manufaktur.com"),
   title: {
     default: "Rekayasa Manufaktur — Precision in Every Piece",
     template: "%s | Rekayasa Manufaktur",
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     description:
       "Furnitur stainless steel & mild steel premium, dirancang dengan presisi teknik untuk kehidupan modern.",
     type: "website",
-    url: "https://rekayasamanufaktur.id",
+    url: "https://rekayasa-manufaktur.com",
     siteName: "Rekayasa Manufaktur",
   },
   icons: {

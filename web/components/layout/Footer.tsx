@@ -2,6 +2,7 @@
 
 import { Mail, MapPin, Phone, AtSign, Globe, Share2 } from "lucide-react";
 import Image from "next/image";
+import Script from "next/script";
 import { scrollToSection } from "@/lib/scroll";
 import { ADDRESS_FULL } from "@/lib/contact";
 
@@ -110,6 +111,31 @@ export default function Footer() {
                   >
                     +62 851 8666 6865
                   </a>
+                </li>
+                <li>
+                  <div id="histats_counter" />
+                  <Script
+                    id="histats-tracking"
+                    dangerouslySetInnerHTML={{
+                      __html: `var _Hasync= _Hasync|| [];
+_Hasync.push(['Histats.start', '1,5055514,4,22,130,30,00011111']);
+_Hasync.push(['Histats.fasi', '1']);
+_Hasync.push(['Histats.track_hits', '']);
+(function() {
+var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
+hs.src = ('//s10.histats.com/js15_as.js');
+(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
+})();`,
+                    }}
+                  />
+                  <noscript>
+                    <a href="/" target="_blank">
+                      <img
+                        src="//sstatic1.histats.com/0.gif?5055514&101"
+                        alt=""
+                      />
+                    </a>
+                  </noscript>
                 </li>
               </ul>
             </div>

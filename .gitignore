@@ -16,6 +16,13 @@ web/next-env.d.ts
 # Cloudflare Pages Functions local dev vars (berisi secret, jangan commit)
 .dev.vars
 
+# Hostinger endpoint config (berisi secret, jangan commit)
+hostinger/config.php
+
+# Folder rakit & zip deploy Hostinger (hasil generate, bukan source)
+hostinger-deploy/
+hostinger-deploy.zip
+
 # Cache/state lokal wrangler (jangan commit)
 .wrangler/
 

@@ -28,7 +28,7 @@ export const ADDRESS_FULL = `${ADDRESS_STREET}, ${ADDRESS_AREA}, ${ADDRESS_CITY}
 
 /** Email kontak */
 export const EMAIL = "entrijm@gmail.com";
-export const WEBSITE = "https://rekayasamanufaktur.id";
+export const WEBSITE = "https://rekayasa-manufaktur.com";
 
 /** Membangun URL WhatsApp dengan pesan pra-terisi */
 export function waUrlWithText(message: string): string {

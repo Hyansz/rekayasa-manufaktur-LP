@@ -8,6 +8,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://rekayasamanufaktur.id/sitemap.xml",
+    sitemap: "https://rekayasa-manufaktur.com/sitemap.xml",
   };
 }

@@ -1,0 +1,7 @@
+# Rewrite /api/contact ke contact.php (endpoint PHP pengganti
+# Cloudflare Pages Function untuk hosting statis Hostinger).
+# Frontend tetap mem-POST ke "/api/contact" tanpa perubahan.
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteRule ^api/contact/?$ contact.php [L,QSA]
+</IfModule>

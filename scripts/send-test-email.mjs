@@ -42,7 +42,7 @@ const body = {
   subject: `Permintaan Penawaran Baru dari ${cleanNama}`,
   reply_to: email,
   html: buildEmailHtml({ nama, email, pesan }),
-  text: `Permintaan Penawaran Baru\n\nNama: ${nama}\nEmail: ${email}\nPesan: ${pesan}\n\nDikirim otomatis dari form kontak rekayasamanufaktur.id`,
+  text: `Permintaan Penawaran Baru\n\nNama: ${nama}\nEmail: ${email}\nPesan: ${pesan}\n\nDikirim otomatis dari form kontak rekayasa-manufaktur.com`,
 };
 
 const res = await fetch("https://api.resend.com/emails", {

@@ -1,5 +1,5 @@
 const ALLOWED_ORIGINS = new Set([
-  "https://rekayasamanufaktur.id",
+  "https://rekayasa-manufaktur.com",
   "https://rekayasa-manufaktur.pages.dev",
   "http://localhost:8788",
   "http://127.0.0.1:8788",
@@ -109,7 +109,7 @@ function buildEmailHtml({ nama, email, pesan }) {
         </table>
       </td></tr>
       <tr><td bgcolor="${SPARK}" style="background:${SPARK};border-top:3px solid ${NAVY};padding:12px 22px;font-family:Arial,Helvetica,sans-serif;font-size:12px;font-weight:700;color:${NAVY};">
-        Dikirim otomatis dari form kontak rekayasamanufaktur.id
+Dikirim otomatis dari form kontak rekayasa-manufaktur.com
       </td></tr>
     </table>
   </td></tr>
@@ -261,7 +261,7 @@ export async function onRequestPost(context) {
     const cleanNama = nama.replace(/[\r\n]+/g, " ").trim();
 
     const html = buildEmailHtml({ nama, email, pesan });
-    const text = `Permintaan Penawaran Baru\n\nNama: ${nama}\nEmail: ${email}\nPesan: ${pesan}\n\nDikirim otomatis dari form kontak rekayasamanufaktur.id`;
+    const text = `Permintaan Penawaran Baru\n\nNama: ${nama}\nEmail: ${email}\nPesan: ${pesan}\n\nDikirim otomatis dari form kontak rekayasa-manufaktur.com`;
 
     let resendResult;
     try {
