@@ -4,6 +4,8 @@ import "./globals.css";
 import LenisProvider from "@/components/shared/lenis-provider";
 import WhatsAppFloat from "@/components/shared/WhatsAppFloat";
 import ScrollToTop from "@/components/shared/ScrollToTop";
+import LocalBusinessJsonLd from "@/components/seo/LocalBusinessJsonLd";
+import { SITE_URL, SITE_NAME, OG_IMAGE, OG_IMAGE_WIDTH, OG_IMAGE_HEIGHT, LOCALE } from "@/lib/seo";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -12,30 +14,41 @@ const inter = Inter({
   weight: ["300", "400", "500", "600", "700", "800"],
 });
 
+const title = "Furnitur Stainless Steel Custom Solo | Rekayasa Manufaktur";
+const description =
+  "Furnitur stainless steel & mild steel custom di Solo: meja, kabinet, tempat tidur susun & trolley. CNC laser cutting presisi ±0.1mm. Konsultasi gratis.";
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://rekayasa-manufaktur.com"),
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: "Rekayasa Manufaktur — Precision in Every Piece",
-    template: "%s | Rekayasa Manufaktur",
+    default: title,
+    template: `%s | ${SITE_NAME}`,
   },
-  description:
-    "Furnitur stainless steel & mild steel premium, dirancang dengan presisi teknik untuk kehidupan modern. Katalog kursi, meja, rak & aksesoris metal engineering-grade.",
-  keywords: [
-    "furnitur stainless steel",
-    "furnitur mild steel",
-    "kursi stainless steel",
-    "standing desk",
-    "rak stainless steel",
-    "manufaktur logam",
-    "furnitur premium",
-  ],
+  description,
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
-    title: "Rekayasa Manufaktur — Precision in Every Piece",
-    description:
-      "Furnitur stainless steel & mild steel premium, dirancang dengan presisi teknik untuk kehidupan modern.",
+    title,
+    description,
     type: "website",
-    url: "https://rekayasa-manufaktur.com",
-    siteName: "Rekayasa Manufaktur",
+    url: SITE_URL,
+    siteName: SITE_NAME,
+    locale: LOCALE,
+    images: [
+      {
+        url: OG_IMAGE,
+        width: OG_IMAGE_WIDTH,
+        height: OG_IMAGE_HEIGHT,
+        alt: "Proses fabrikasi furnitur stainless steel di bengkel Rekayasa Manufaktur Solo",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+    images: [OG_IMAGE],
   },
   icons: {
     icon: [{ url: "/icon.png", type: "image/png", sizes: "512x512" }],
@@ -52,6 +65,7 @@ export default function RootLayout({
   return (
     <html lang="id" className={inter.variable}>
       <body>
+        <LocalBusinessJsonLd />
         <WhatsAppFloat />
         <ScrollToTop />
         <LenisProvider>{children}</LenisProvider>
