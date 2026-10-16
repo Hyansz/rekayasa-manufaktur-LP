@@ -36,8 +36,9 @@ export default function Hero() {
 
   useIsomorphicLayoutEffect(() => {
     const ctx = gsap.context(() => {
-      // Reduced-motion: elemen defaultnya tersembunyi via class (opacity-0),
-      // jadi langsung set ke final state biar tidak permanen tak terlihat.
+      // Reduced-motion: sebagian elemen defaultnya tersembunyi via class
+      // (opacity-0) — label, CTA, stats, scroll-indicator. Teks terbesar
+      // (headline + H1) sengaja TIDAK opacity-0 agar LCP terpaint lebih awal.
       if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
         gsap.set(
           [
@@ -53,8 +54,9 @@ export default function Hero() {
         return;
       }
 
-      // gsap.to() — starting state (opacity-0 / translateY) sudah ada sebagai
-      // class Tailwind statis di markup, jadi tidak ada flash teks penuh.
+      // gsap.to() — starting state (translateY, & opacity-0 untuk elemen kecil)
+      // sudah ada sebagai class Tailwind statis di markup, jadi tidak ada flash
+      // teks penuh. Headline & H1 tidak opacity-0 supaya LCP muncul lebih cepat.
       const tl = gsap.timeline({ defaults: { ease: "power4.out" } });
       tl.to(".hero-label", { y: 0, opacity: 1, duration: 0.7 })
         .to(
@@ -136,7 +138,7 @@ export default function Hero() {
                 {word.split("").map((char, ci) => (
                   <span
                     key={ci}
-                    className="char inline-block will-change-transform opacity-0 [transform:translateY(60px)]"
+                    className="char inline-block will-change-transform [transform:translateY(60px)]"
                   >
                     {char}
                   </span>
@@ -146,7 +148,7 @@ export default function Hero() {
             ))}
           </p>
 
-          <h1 className="hero-sub mt-6 max-w-2xl text-base leading-relaxed text-white/70 opacity-0 [transform:translateY(30px)] sm:text-lg">
+          <h1 className="hero-sub mt-6 max-w-2xl text-base leading-relaxed text-white/70 [transform:translateY(30px)] sm:text-lg">
             Furnitur stainless steel &amp; mild steel custom di Solo — dirakit
             dengan toleransi ±0.1mm untuk ruang yang modern, kokoh, dan
             berkelas.

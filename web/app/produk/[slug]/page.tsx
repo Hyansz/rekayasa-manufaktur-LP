@@ -86,7 +86,7 @@ export default async function ProductPage({
         <div className="container-brand">
           {/* Breadcrumb */}
           <nav aria-label="Breadcrumb" className="mb-8">
-            <ol className="flex flex-wrap items-center gap-1.5 text-xs text-gray-400">
+            <ol className="flex flex-wrap items-center gap-1.5 text-xs text-gray-500">
               <li className="flex items-center gap-1.5">
                 <Link href="/" className="transition-colors hover:text-navy-800">
                   Beranda
@@ -199,12 +199,12 @@ export default async function ProductPage({
                 href={waHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#25D366] px-6 py-3.5 text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:brightness-105 active:scale-[0.98] sm:w-auto"
+                className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#25D366] px-6 py-3.5 text-sm font-semibold text-navy-900 shadow-sm transition-all duration-200 hover:brightness-105 active:scale-[0.98] sm:w-auto"
               >
                 <MessageCircle className="h-4 w-4" aria-hidden />
                 Pesan {product.name} via WhatsApp
               </a>
-              <p className="mt-3 flex items-center gap-1.5 text-xs text-gray-400">
+              <p className="mt-3 flex items-center gap-1.5 text-xs text-gray-500">
                 <MapPin className="h-3.5 w-3.5" aria-hidden />
                 {ADDRESS_FULL} · {WA_DISPLAY}
               </p>

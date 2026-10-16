@@ -107,7 +107,7 @@ export default function FinalCTA() {
     >
       <Script
         src="https://challenges.cloudflare.com/turnstile/v0/api.js"
-        strategy="afterInteractive"
+        strategy="lazyOnload"
       />
       <div
         aria-hidden
@@ -219,6 +219,7 @@ export default function FinalCTA() {
                   data-sitekey={TURNSTILE_SITE_KEY}
                   data-appearance="always"
                   data-size="flexible"
+                  role="group"
                   aria-label="Verifikasi keamanan"
                 />
               </div>

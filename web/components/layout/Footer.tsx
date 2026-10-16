@@ -1,6 +1,7 @@
 "use client";
 
 import { Mail, MapPin, Phone, AtSign, Globe, Share2 } from "lucide-react";
+import { useEffect } from "react";
 import Image from "next/image";
 import Script from "next/script";
 import { usePathname } from "next/navigation";
@@ -32,6 +33,23 @@ export default function Footer() {
     if (!onHome) return;
     scrollToSection(href, e);
   };
+
+  // Badge counter Histats di-inject oleh script pihak ketiga sebagai <a> tanpa
+  // teks (gagal audit "link-name"). Tracking tetap jalan; kita hanya keluarkan
+  // tautan tak-bernama itu dari urutan tab & accessibility tree.
+  useEffect(() => {
+    const sanitize = () => {
+      document
+        .querySelectorAll<HTMLAnchorElement>("#histats_counter a")
+        .forEach((a) => {
+          a.setAttribute("tabindex", "-1");
+          a.setAttribute("aria-hidden", "true");
+        });
+    };
+    sanitize();
+    const timers = [setTimeout(sanitize, 1500), setTimeout(sanitize, 3500)];
+    return () => timers.forEach(clearTimeout);
+  }, []);
 
   return (
     <footer className="bg-navy-900 text-white/80">
@@ -124,7 +142,7 @@ export default function Footer() {
                   <div id="histats_counter" />
                   <Script
                     id="histats-tracking"
-                    strategy="afterInteractive"
+                    strategy="lazyOnload"
                     dangerouslySetInnerHTML={{
                       __html: `var _Hasync= _Hasync|| [];
 _Hasync.push(['Histats.start', '1,5055514,4,22,130,30,00011111']);
@@ -155,7 +173,7 @@ hs.src = ('//s10.histats.com/js15_as.js');
         </div>
       </div>
       <div className="border-t border-white/10">
-        <div className="container-brand flex flex-col items-center justify-between gap-2 py-6 text-xs text-white/40 sm:flex-row">
+        <div className="container-brand flex flex-col items-center justify-between gap-2 py-6 text-xs text-white/60 sm:flex-row">
           <p>&copy; {new Date().getFullYear()} Rekayasa Manufaktur.</p>
           <p>Precision in Every Piece</p>
         </div>
