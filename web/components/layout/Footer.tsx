@@ -124,6 +124,7 @@ export default function Footer() {
                   <div id="histats_counter" />
                   <Script
                     id="histats-tracking"
+                    strategy="afterInteractive"
                     dangerouslySetInnerHTML={{
                       __html: `var _Hasync= _Hasync|| [];
 _Hasync.push(['Histats.start', '1,5055514,4,22,130,30,00011111']);
@@ -137,10 +138,13 @@ hs.src = ('//s10.histats.com/js15_as.js');
                     }}
                   />
                   <noscript>
-                    <a href="/" target="_blank">
+                    <a href="/" target="_blank" rel="noopener noreferrer">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
                         src="//sstatic1.histats.com/0.gif?5055514&101"
                         alt=""
+                        width={1}
+                        height={1}
                       />
                     </a>
                   </noscript>

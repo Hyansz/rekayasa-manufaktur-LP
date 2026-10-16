@@ -39,6 +39,8 @@ function ProductCarousel({
       <img
         src={images[0]}
         alt={alt}
+        width={1000}
+        height={1416}
         loading="lazy"
         className="h-full w-full object-contain"
         style={{ transform: "translateZ(40px)" }}
@@ -70,6 +72,8 @@ function ProductCarousel({
             key={src}
             src={src}
             alt={`${alt} — foto ${i + 1}`}
+            width={1000}
+            height={1416}
             loading="lazy"
             draggable={false}
             className="h-full w-full shrink-0 select-none object-contain"

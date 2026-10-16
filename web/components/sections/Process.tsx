@@ -200,7 +200,8 @@ function StepMedia({ step }: { step: ProcessStep }) {
         muted
         loop
         playsInline
-        preload="metadata"
+        preload="none"
+        poster={step.video.poster}
         onLoadedData={() => setReady(true)}
         onPlay={() => setPlaying(true)}
         onPause={() => setPlaying(false)}
@@ -305,7 +306,7 @@ function FacilityVideoModal({
           autoPlay
           muted
           playsInline
-          preload="metadata"
+          preload="none"
           poster={FACILITY_VIDEO.poster}
         >
           <source src={FACILITY_VIDEO.mp4} type="video/mp4" />

@@ -95,6 +95,7 @@ export default function Hero() {
           fill
           sizes="100vw"
           priority
+          fetchPriority="high"
           placeholder="blur"
           blurDataURL={blurDataURL}
           className="object-cover"
