@@ -7,6 +7,14 @@ import { cn } from "@/lib/utils";
 
 const faqs = [
   {
+    q: "Produk apa saja yang bisa dibuat?",
+    a: "Kami membuat meja (termasuk meja guru & kabinet, set meja-kursi belajar), tempat tidur susun cabinet, trolley, rak penyimpanan, hingga aksesoris berbahan logam — semuanya bisa disesuaikan dengan kebutuhan ruang Anda.",
+  },
+  {
+    q: "Material apa saja yang tersedia?",
+    a: "Kami menggunakan Stainless Steel SS 304 & SS 201 dengan finishing BA (Bright Annealed) dan HL, serta Mild Steel dengan treatment anti karat dan finishing powder coating.",
+  },
+  {
     q: "Apakah produk bisa custom ukuran?",
     a: "Tentu. Semua produk kami bisa dikustomisasi, mulai dari dimensi, profil, hingga finishing. Tim engineering kami akan mendiskusikan kebutuhan Anda dan memberikan rekomendasi terbaik.",
   },

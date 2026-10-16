@@ -11,6 +11,7 @@ const anchorLinks = [
   { label: "Koleksi", href: "#showcase" },
   { label: "Proses", href: "#process" },
   { label: "FAQ", href: "#faq" },
+  { label: "Lokasi", href: "#lokasi" },
   { label: "Kontak", href: "#cta" },
 ];
 

@@ -6,6 +6,7 @@ import ProductShowcase from "@/components/sections/ProductShowcase";
 import Process from "@/components/sections/Process";
 import Testimonial from "@/components/sections/Testimonial";
 import FAQ from "@/components/sections/FAQ";
+import Location from "@/components/sections/Location";
 import FinalCTA from "@/components/sections/FinalCTA";
 
 export default function Home() {
@@ -18,6 +19,7 @@ export default function Home() {
       <Process />
       <Testimonial />
       <FAQ />
+      <Location />
       <FinalCTA />
     </SiteShell>
   );

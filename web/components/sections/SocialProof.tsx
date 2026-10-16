@@ -7,6 +7,12 @@ import { clients } from "@/lib/data";
 
 gsap.registerPlugin(ScrollTrigger);
 
+// TODO(owner): angka-angka ini belum konsisten dengan section lain:
+//   - "Proyek Selesai" = 50 di sini, tapi Hero menyebut 500+.
+//   - "Tahun Berpengalaman" = 5 di sini, tapi Hero menyebut 10+ dan
+//     section Proses menyebut 15+.
+//   - "Koleksi Produk" = 8, sedangkan showcase menampilkan 4 produk unggulan.
+// Konfirmasi angka final lalu samakan di seluruh halaman.
 const stats = [
   { value: 50, suffix: "+", label: "Proyek Selesai" },
   { value: 8, suffix: "", label: "Koleksi Produk" },
@@ -102,7 +108,7 @@ export default function SocialProof() {
           {stats.map((stat) => (
             <div key={stat.label} className="text-center">
               <p className="text-4xl font-extrabold tracking-tight text-navy-800 sm:text-5xl">
-                <span className="stat-number">0</span>
+                <span className="stat-number">{stat.value}</span>
                 <span className="text-brand">{stat.suffix}</span>
               </p>
               <p className="mt-2 text-sm font-medium text-gray-500">

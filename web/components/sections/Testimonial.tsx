@@ -66,6 +66,8 @@ const avatarColors = [
 ];
 
 export default function Testimonials() {
+  // Salinan kedua hanya untuk efek marquee mulus — sembunyikan dari screen
+  // reader agar testimoni tidak diumumkan dua kali.
   const loopItems = [...testimonials, ...testimonials];
 
   return (
@@ -117,6 +119,7 @@ export default function Testimonials() {
           {loopItems.map((t, i) => (
             <div
               key={`${t.name}-${i}`}
+              aria-hidden={i >= testimonials.length}
               className="w-[320px] shrink-0 rounded-2xl border border-gray-200/80 bg-white p-6 shadow-[0_10px_30px_-12px_rgba(15,23,42,0.12)] sm:w-[360px]"
             >
               <div className="flex items-center justify-between">

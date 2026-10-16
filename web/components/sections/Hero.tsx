@@ -129,7 +129,7 @@ export default function Hero() {
             Rekayasa Manufaktur
           </p>
 
-          <h1 className="hero-headline mt-6 text-balance text-4xl font-extrabold leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-[64px] lg:leading-[1.04]">
+          <p className="hero-headline mt-6 text-balance text-4xl font-extrabold leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-[64px] lg:leading-[1.04]">
             {headline.split(" ").map((word, wi) => (
               <span key={wi} className="inline-block whitespace-nowrap">
                 {word.split("").map((char, ci) => (
@@ -143,13 +143,13 @@ export default function Hero() {
                 {wi < headline.split(" ").length - 1 && <span>&nbsp;</span>}
               </span>
             ))}
-          </h1>
-
-          <p className="hero-sub mt-6 max-w-2xl text-base leading-relaxed text-white/70 opacity-0 [transform:translateY(30px)] sm:text-lg">
-            Furnitur stainless steel &amp; mild steel premium dengan presisi
-            teknik — dirakit dengan toleransi ±0.1mm untuk ruang yang modern,
-            kokoh, dan berkelas.
           </p>
+
+          <h1 className="hero-sub mt-6 max-w-2xl text-base leading-relaxed text-white/70 opacity-0 [transform:translateY(30px)] sm:text-lg">
+            Furnitur stainless steel &amp; mild steel custom di Solo — dirakit
+            dengan toleransi ±0.1mm untuk ruang yang modern, kokoh, dan
+            berkelas.
+          </h1>
 
           <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row sm:items-center sm:gap-4">
             <a
@@ -192,6 +192,9 @@ export default function Hero() {
             </div>
             <div className="h-8 w-px bg-white/10" aria-hidden />
             <div>
+              {/* TODO(owner): angka "500+" di sini bertentangan dengan
+                  SocialProof yang menyebut "50+ Proyek Selesai". Konfirmasi
+                  angka final lalu samakan di kedua tempat. */}
               <p className="text-xl font-extrabold tracking-tight text-white sm:text-2xl">
                 500+
               </p>
