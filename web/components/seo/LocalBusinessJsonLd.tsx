@@ -4,7 +4,6 @@ import {
   EMAIL,
   ADDRESS_STREET,
   ADDRESS_AREA,
-  ADDRESS_CITY,
 } from "@/lib/contact";
 import { SITE_URL, OG_IMAGE } from "@/lib/seo";
 

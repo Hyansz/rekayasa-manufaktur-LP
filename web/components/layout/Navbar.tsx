@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
 import {
   Cog,
@@ -34,8 +35,11 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState("#hero");
+  const pathname = usePathname();
+  const onHome = pathname === "/";
 
   useEffect(() => {
+    if (!onHome) return;
     let ticking = false;
     const onScroll = () => {
       if (ticking) return;
@@ -48,9 +52,10 @@ export default function Navbar() {
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [onHome]);
 
   useEffect(() => {
+    if (!onHome) return;
     const sections = links
       .map((l) => document.querySelector(l.href))
       .filter(Boolean) as HTMLElement[];
@@ -68,7 +73,7 @@ export default function Navbar() {
 
     sections.forEach((s) => observer.observe(s));
     return () => observer.disconnect();
-  }, []);
+  }, [onHome]);
 
   useEffect(() => {
     window.dispatchEvent(
@@ -76,13 +81,17 @@ export default function Navbar() {
     );
   }, [open]);
 
-  const solid = scrolled || active !== "#hero";
+  const solid = !onHome || scrolled || active !== "#hero";
 
-  const scrollTo = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const scrollTo = (href: string, e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (!onHome) return;
     e.preventDefault();
     setOpen(false);
     scrollToSection(href);
   };
+
+  // Dari halaman lain (mis. /produk/...), anchor menuju section di beranda.
+  const hrefFor = (hash: string) => (onHome ? hash : `/${hash}`);
 
   return (
     <header
@@ -96,8 +105,8 @@ export default function Navbar() {
       <nav className="container-brand flex h-full items-center justify-between px-4 sm:px-0">
         {/* Logo */}
         <a
-          href="#hero"
-          onClick={(e) => scrollTo(e, "#hero")}
+          href={hrefFor("#hero")}
+          onClick={(e) => scrollTo("#hero", e)}
           className="group flex items-center gap-3"
         >
           <span className="rounded-lg bg-white/15 p-0.5">
@@ -126,8 +135,8 @@ export default function Navbar() {
             return (
               <a
                 key={link.href}
-                href={link.href}
-                onClick={(e) => scrollTo(e, link.href)}
+                href={hrefFor(link.href)}
+                onClick={(e) => scrollTo(link.href, e)}
                 aria-current={isActive ? "true" : undefined}
                 className={cn(
                   "group relative text-[13px] font-medium transition-colors duration-200",
@@ -162,7 +171,7 @@ export default function Navbar() {
             <Phone className="h-3.5 w-3.5" aria-hidden />
             +62 851 8666 6865
           </a>
-          <a href="#cta" onClick={(e) => scrollTo(e, "#cta")}>
+          <a href={hrefFor("#cta")} onClick={(e) => scrollTo("#cta", e)}>
             <Button className="h-9 rounded-full px-5 text-[13px] font-semibold shadow-sm transition-all duration-300 hover:shadow-md">
               Minta Penawaran
             </Button>
@@ -210,8 +219,8 @@ export default function Navbar() {
                 return (
                   <a
                     key={link.href}
-                    href={link.href}
-                    onClick={(e) => scrollTo(e, link.href)}
+                    href={hrefFor(link.href)}
+                    onClick={(e) => scrollTo(link.href, e)}
                     aria-current={isActive ? "true" : undefined}
                     className={cn(
                       "group flex items-center gap-3 border-l-[3px] rounded-xl py-3 pr-4 pl-3 text-sm font-medium transition-colors duration-200",
@@ -235,8 +244,8 @@ export default function Navbar() {
                 );
               })}
               <a
-                href="#cta"
-                onClick={(e) => scrollTo(e, "#cta")}
+                href={hrefFor("#cta")}
+                onClick={(e) => scrollTo("#cta", e)}
                 className="mt-2"
               >
                 <Button className="h-11 w-full rounded-xl">

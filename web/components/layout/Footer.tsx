@@ -3,6 +3,7 @@
 import { Mail, MapPin, Phone, AtSign, Globe, Share2 } from "lucide-react";
 import Image from "next/image";
 import Script from "next/script";
+import { usePathname } from "next/navigation";
 import { scrollToSection } from "@/lib/scroll";
 import { ADDRESS_FULL } from "@/lib/contact";
 
@@ -16,13 +17,19 @@ const anchorLinks = [
 ];
 
 const socials = [
+  // TODO(owner): tautan sosial belum tersedia (masih "#"). Isi URL resmi
+  // Instagram/Facebook/etc. saat sudah ada agar tidak jadi tautan mati.
   { label: "Website", icon: Globe },
   { label: "Email", icon: AtSign },
   { label: "Berbagi", icon: Share2 },
 ];
 
 export default function Footer() {
+  const onHome = usePathname() === "/";
+  const hrefFor = (hash: string) => (onHome ? hash : `/${hash}`);
+
   const scrollTo = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (!onHome) return;
     scrollToSection(href, e);
   };
 
@@ -75,7 +82,7 @@ export default function Footer() {
                 {anchorLinks.map((link) => (
                   <li key={link.href}>
                     <a
-                      href={link.href}
+                      href={hrefFor(link.href)}
                       onClick={(e) => scrollTo(e, link.href)}
                       className="text-sm text-white/50 transition-colors hover:text-white"
                     >
