@@ -4,7 +4,6 @@ import { useCallback, useRef, useState } from "react";
 import Link from "next/link";
 import {
   ArrowRight,
-  ArrowUpRight,
   ChevronLeft,
   ChevronRight,
 } from "lucide-react";
@@ -153,62 +152,65 @@ export default function ProductShowcase() {
         </ScrollReveal>
 
         <ScrollReveal stagger>
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-5 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
             {showcase.map((product) => (
               <TiltCard key={product.id} className="h-full">
-                <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-gray-200/80 bg-white shadow-sm transition-colors duration-150 hover:border-brand/40">
-                  <div className="relative aspect-[4/5] overflow-hidden bg-gray-100 ring-1 ring-inset ring-black/5">
-                    <ProductCarousel
-                      images={
-                        product.gallery.length > 0
-                          ? product.gallery
-                          : [product.image]
-                      }
-                      alt={product.name}
-                    />
-                    <span className="absolute left-3 top-3 rounded-full bg-white/90 px-3 py-1 text-[11px] font-medium tracking-wide text-navy-700 shadow-sm">
-                      {product.categoryName}
-                    </span>
-                    <ProductWatermark />
-                  </div>
-                  <div className="flex flex-1 flex-col p-4 sm:p-5">
-                    <h3 className="text-sm font-semibold leading-snug text-navy-800 sm:text-[15px]">
-                      <Link
-                        href={`/produk/${product.slug}`}
-                        className="transition-colors hover:text-brand"
-                      >
-                        {product.name}
-                      </Link>
-                    </h3>
-                    <ul className="mt-2 space-y-1">
-                      {product.highlights.slice(0, 2).map((highlight) => (
-                        <li
-                          key={highlight}
-                          className="flex items-start gap-1.5 text-xs leading-relaxed text-gray-500"
-                        >
-                          <span
-                            className="mt-[5px] h-1 w-1 shrink-0 rounded-full bg-brand"
-                            aria-hidden
-                          />
-                          {highlight}
-                        </li>
-                      ))}
-                    </ul>
-                    <MaterialGradeInfo
-                      grade={product.materialGrade}
-                      className="mt-3"
-                    />
-                    <div className="mt-auto flex justify-end pt-3">
-                      <Link
-                        href={`/produk/${product.slug}`}
-                        className="flex items-center gap-1 text-[11px] font-semibold text-brand transition-colors hover:text-brand-dark"
-                      >
-                        Lihat Detail
-                        <ArrowUpRight className="h-3 w-3" aria-hidden />
-                      </Link>
+                <Link
+                  href={`/produk/${product.slug}`}
+                  className="group block h-full"
+                  aria-label={`Lihat detail ${product.name}`}
+                >
+                  <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-gray-200/80 bg-white shadow-sm transition-colors duration-150 hover:border-brand/40 hover:shadow-md">
+                    <div className="relative aspect-[4/5] overflow-hidden bg-gray-100 ring-1 ring-inset ring-black/5">
+                      <ProductCarousel
+                        images={
+                          product.gallery.length > 0
+                            ? product.gallery
+                            : [product.image]
+                        }
+                        alt={product.name}
+                      />
+                      <span className="absolute left-3 top-3 rounded-full bg-white/90 px-3 py-1 text-[11px] font-medium tracking-wide text-navy-700 shadow-sm">
+                        {product.categoryName}
+                      </span>
+                      <ProductWatermark />
                     </div>
-                  </div>
-                </article>
+                    <div className="flex flex-1 flex-col p-4 sm:p-5">
+                      <h3 className="text-sm font-semibold leading-snug text-navy-800 sm:text-[15px]">
+                        {product.name}
+                      </h3>
+                      <ul className="mt-2 space-y-1">
+                        {product.highlights.slice(0, 2).map((highlight) => (
+                          <li
+                            key={highlight}
+                            className="flex items-start gap-1.5 text-xs leading-relaxed text-gray-500"
+                          >
+                            <span
+                              className="mt-[5px] h-1 w-1 shrink-0 rounded-full bg-brand"
+                              aria-hidden
+                            />
+                            {highlight}
+                          </li>
+                        ))}
+                      </ul>
+                      <MaterialGradeInfo
+                        grade={product.materialGrade}
+                        className="mt-3"
+                      />
+                      <div className="mt-auto flex flex-col-reverse gap-2 pt-3">
+                        <a
+                          href={`https://wa.me/6285186666865?text=Halo Rekayasa Manufaktur, saya tertarik dengan ${encodeURIComponent(product.name)}. Mohon info lebih lanjut.`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={(e) => e.stopPropagation()}
+                          className="inline-flex items-center gap-1 rounded-full border border-gray-200 bg-gray-50 px-3 py-1.5 text-[11px] font-semibold text-navy-700 transition-colors hover:bg-gray-100 active:scale-95"
+                        >
+                          Tanya via WhatsApp
+                        </a>
+                      </div>
+                    </div>
+                  </article>
+                </Link>
               </TiltCard>
             ))}
           </div>

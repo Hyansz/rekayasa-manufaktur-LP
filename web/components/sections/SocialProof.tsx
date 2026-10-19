@@ -4,20 +4,20 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { clients } from "@/lib/data";
+import {
+  PROJECTS_COMPLETED,
+  COLLECTION_COUNT,
+  YEARS_EXPERIENCE,
+  WARRANTY_YEARS,
+} from "@/lib/business";
 
 gsap.registerPlugin(ScrollTrigger);
 
-// TODO(owner): angka-angka ini belum konsisten dengan section lain:
-//   - "Proyek Selesai" = 50 di sini, tapi Hero menyebut 500+.
-//   - "Tahun Berpengalaman" = 5 di sini, tapi Hero menyebut 10+ dan
-//     section Proses menyebut 15+.
-//   - "Koleksi Produk" = 8, sedangkan showcase menampilkan 4 produk unggulan.
-// Konfirmasi angka final lalu samakan di seluruh halaman.
 const stats = [
-  { value: 50, suffix: "+", label: "Proyek Selesai" },
-  { value: 8, suffix: "", label: "Koleksi Produk" },
-  { value: 5, suffix: "", label: "Tahun Berpengalaman" },
-  { value: 100, suffix: "%", label: "Kepuasan Klien" },
+  { value: PROJECTS_COMPLETED, suffix: "+", label: "Proyek Selesai" },
+  { value: COLLECTION_COUNT, suffix: "", label: "Koleksi Produk" },
+  { value: YEARS_EXPERIENCE, suffix: "+", label: "Tahun Berpengalaman" },
+  { value: WARRANTY_YEARS, suffix: "", label: "Garansi" },
 ];
 
 export default function SocialProof() {
@@ -73,8 +73,6 @@ export default function SocialProof() {
     return () => ctx.revert();
   }, []);
 
-  const allClients = [...clients, ...clients];
-
   return (
     <section
       ref={ref}
@@ -83,25 +81,8 @@ export default function SocialProof() {
     >
       <div className="container-brand">
         <p className="social-proof-item text-center text-[13px] font-medium uppercase tracking-[0.2em] text-gray-400">
-          Dipercaya oleh 50+ Proyek
+          Dipercaya oleh {PROJECTS_COMPLETED}+ proyek
         </p>
-
-        {/* Logo marquee */}
-        {/*
-        <div className="marquee-hover fade-edge-x mt-8 overflow-hidden">
-          <div className="animate-marquee flex w-max items-center gap-14 pr-14">
-            {allClients.map((client, i) => (
-              <img
-                key={`${client.name}-${i}`}
-                src={client.logo}
-                alt={client.name}
-                loading="lazy"
-                className="h-7 shrink-0 opacity-50 grayscale transition-opacity duration-300 hover:opacity-90"
-              />
-            ))}
-          </div>
-        </div>
-        */}
 
         {/* Stats row */}
         <div className="stats-row mt-12 grid grid-cols-2 gap-6 border-t border-gray-100 pt-10 lg:grid-cols-4">

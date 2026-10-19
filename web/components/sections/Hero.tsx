@@ -1,10 +1,12 @@
 "use client";
 
 import { useEffect, useLayoutEffect, useRef } from "react";
+import Head from "next/head";
 import Image from "next/image";
 import { ArrowRight, ArrowDown } from "lucide-react";
 import gsap from "gsap";
 import { scrollToSection } from "@/lib/scroll";
+import { PROJECTS_COMPLETED, YEARS_EXPERIENCE } from "@/lib/business";
 
 const headline = "Precision in Every Piece";
 
@@ -12,7 +14,7 @@ const headline = "Precision in Every Piece";
 // f_auto,q_auto,w_1920 bikin Cloudinary otomatis pilih format & kualitas
 // terbaik, lalu resize ke 1920px supaya tetap tajam saat full-screen.
 const heroImage =
-  "https://res.cloudinary.com/dtsrtikhr/image/upload/f_auto,q_auto,w_1920/v1789530994/two-worker-making-gates-smithy_1_vw6qlr.jpg";
+  "https://res.cloudinary.com/dtsrtikhr/image/upload/f_auto,q_auto,w_1280/v1789530994/two-worker-making-gates-smithy_1_vw6qlr.jpg";
 
 // Kunci fokus foto di dalam frame (default "center").
 // Ubah mis. ke "50% 30%" kalau subjek foto ada di sepertiga atas.
@@ -175,37 +177,12 @@ export default function Hero() {
             </a>
           </div>
 
-          <div className="hero-stats mt-12 flex items-center justify-center gap-8 border-t border-white/10 pt-6 opacity-0 [transform:translateY(20px)] sm:gap-12">
-            <div>
-              <p className="text-xl font-extrabold tracking-tight text-white sm:text-2xl">
-                ±0.1mm
-              </p>
-              <p className="mt-1 text-[11px] font-medium uppercase tracking-wider text-white/40">
-                Toleransi CNC
-              </p>
-            </div>
-            <div className="h-8 w-px bg-white/10" aria-hidden />
-            <div>
-              <p className="text-xl font-extrabold tracking-tight text-white sm:text-2xl">
-                10+
-              </p>
-              <p className="mt-1 text-[11px] font-medium uppercase tracking-wider text-white/40">
-                Tahun Pengalaman
-              </p>
-            </div>
-            <div className="h-8 w-px bg-white/10" aria-hidden />
-            <div>
-              {/* TODO(owner): angka "500+" di sini bertentangan dengan
-                  SocialProof yang menyebut "50+ Proyek Selesai". Konfirmasi
-                  angka final lalu samakan di kedua tempat. */}
-              <p className="text-xl font-extrabold tracking-tight text-white sm:text-2xl">
-                500+
-              </p>
-              <p className="mt-1 text-[11px] font-medium uppercase tracking-wider text-white/40">
-                Project Selesai
-              </p>
-            </div>
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-sm text-white/70">
+            <span className="text-xs font-medium uppercase tracking-wider text-white/30">±0.1mm Toleransi</span>
+            <span className="text-white/20" aria-hidden>·</span>
+            <span className="text-xs font-medium uppercase tracking-wider text-white/30">Custom di Solo</span>
           </div>
+
         </div>
       </div>
 

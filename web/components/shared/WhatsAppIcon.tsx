@@ -6,10 +6,8 @@
  */
 export default function WhatsAppIcon({
   className = "h-5 w-5",
-  strokeWidth = 2,
 }: {
   className?: string;
-  strokeWidth?: number;
 }) {
   return (
     <svg

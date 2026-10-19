@@ -41,7 +41,7 @@ const testimonials = [
   {
     name: "Maya Puspita",
     quote:
-      "Garansi 5 tahunnya bikin tenang. Sudah pernah klaim sekali karena baut kendor, prosesnya cepat dan tidak ribet.",
+      "Garansi 3 tahunnya bikin tenang. Sudah pernah klaim sekali karena baut kendor, prosesnya cepat dan tidak ribet.",
   },
 ];
 
@@ -72,24 +72,6 @@ export default function Testimonials() {
 
   return (
     <section id="testimoni" className="bg-gray-50 py-16 sm:py-20 md:py-28">
-      <style>{`
-        @keyframes testimonial-marquee {
-          from { transform: translateX(0); }
-          to { transform: translateX(-50%); }
-        }
-        .testimonial-track {
-          animation: testimonial-marquee 45s linear infinite;
-        }
-        .testimonial-track:hover {
-          animation-play-state: paused;
-        }
-        @media (prefers-reduced-motion: reduce) {
-          .testimonial-track {
-            animation: none;
-          }
-        }
-      `}</style>
-
       <div className="container-brand">
         <div className="mb-10 text-center sm:mb-12">
           <p className="text-[13px] font-semibold uppercase tracking-[0.18em] text-brand">
@@ -105,22 +87,88 @@ export default function Testimonials() {
         </div>
       </div>
 
-      <div className="relative overflow-hidden">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-gray-50 to-transparent sm:w-32"
-        />
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-gray-50 to-transparent sm:w-32"
-        />
+      {/* Desktop: marquee bisa dijeda saat hover */}
+      <div className="hidden md:block">
+        <style>{`
+          @keyframes testimonial-marquee {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+          }
+          .testimonial-track {
+            animation: testimonial-marquee 45s linear infinite;
+          }
+          .testimonial-track:hover {
+            animation-play-state: paused;
+          }
+          @media (prefers-reduced-motion: reduce) {
+            .testimonial-track {
+              animation: none;
+            }
+          }
+        `}</style>
 
-        <div className="testimonial-track flex w-max gap-5 px-5">
-          {loopItems.map((t, i) => (
+        <div className="relative overflow-hidden">
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-gray-50 to-transparent"
+          />
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-gray-50 to-transparent"
+          />
+
+          <div className="testimonial-track flex w-max gap-5 px-5">
+            {loopItems.map((t, i) => (
+              <div
+                key={`${t.name}-${i}`}
+                aria-hidden={i >= testimonials.length}
+                className="w-[320px] shrink-0 rounded-2xl border border-gray-200/80 bg-white p-6 shadow-[0_10px_30px_-12px_rgba(15,23,42,0.12)]"
+              >
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-1">
+                    {Array.from({ length: 5 }).map((_, n) => (
+                      <Star
+                        key={n}
+                        className="h-4 w-4 fill-brand text-brand"
+                        aria-hidden
+                      />
+                    ))}
+                  </div>
+                  <Quote className="h-5 w-5 text-brand/25" aria-hidden />
+                </div>
+                <p className="mt-4 text-base leading-relaxed text-gray-600">
+                  &ldquo;{t.quote}&rdquo;
+                </p>
+                <div className="mt-5 flex items-center gap-3 border-t border-gray-100 pt-4">
+                  <div
+                    className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-sm font-bold ring-2 ring-white ${
+                      avatarColors[i % avatarColors.length]
+                    }`}
+                    aria-hidden
+                  >
+                    {getInitials(t.name)}
+                  </div>
+                  <div>
+                    <p className="text-base font-semibold text-navy-800">
+                      {t.name}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile: carousel horizontal scroll-snap */}
+      <div className="md:hidden overflow-x-auto scrollbar-none"
+        style={{ scrollSnapType: "x mandatory", scrollBehavior: "smooth" }}
+      >
+        <div className="flex gap-5 px-5">
+          {testimonials.map((t, i) => (
             <div
-              key={`${t.name}-${i}`}
-              aria-hidden={i >= testimonials.length}
-              className="w-[320px] shrink-0 rounded-2xl border border-gray-200/80 bg-white p-6 shadow-[0_10px_30px_-12px_rgba(15,23,42,0.12)] sm:w-[360px]"
+              key={t.name}
+              className="min-w-[88%] shrink-0 scroll-snap-align-start rounded-2xl border border-gray-200/80 bg-white p-6 shadow-[0_10px_30px_-12px_rgba(15,23,42,0.12)]"
             >
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-1">
@@ -134,7 +182,7 @@ export default function Testimonials() {
                 </div>
                 <Quote className="h-5 w-5 text-brand/25" aria-hidden />
               </div>
-              <p className="mt-4 text-sm leading-relaxed text-gray-600 sm:text-[15px]">
+              <p className="mt-4 text-base leading-relaxed text-gray-600">
                 &ldquo;{t.quote}&rdquo;
               </p>
               <div className="mt-5 flex items-center gap-3 border-t border-gray-100 pt-4">
@@ -147,7 +195,7 @@ export default function Testimonials() {
                   {getInitials(t.name)}
                 </div>
                 <div>
-                  <p className="text-[15px] font-semibold text-navy-800">
+                  <p className="text-base font-semibold text-navy-800">
                     {t.name}
                   </p>
                 </div>

@@ -1,4 +1,4 @@
-import { MapPin, Truck, Wrench, Navigation } from "lucide-react";
+import { MapPin, Truck, Wrench, Navigation, Clock, Phone } from "lucide-react";
 import ScrollReveal from "@/components/shared/ScrollReveal";
 import {
   ADDRESS_FULL,
@@ -7,17 +7,16 @@ import {
   waUrlWithText,
   WA_DEFAULT_MESSAGE,
 } from "@/lib/contact";
+import {
+  OPENING_HOURS,
+  OPENING_HOURS_TEXT,
+  MAPS_URL,
+  MAPS_EMBED_URL,
+} from "@/lib/business";
 
-const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-  `Rekayasa Manufaktur, ${ADDRESS_FULL}`
-)}`;
+const mapsUrl = MAPS_URL;
 
 const services = [
-  {
-    icon: MapPin,
-    title: "Kunjungi Bengkel Kami",
-    text: "Silakan datang langsung ke workshop untuk melihat proses fabrikasi dan contoh hasil finishing secara langsung.",
-  },
   {
     icon: Truck,
     title: "Pengiriman Seluruh Indonesia",
@@ -47,7 +46,7 @@ export default function Location() {
           </p>
         </ScrollReveal>
 
-        <div className="grid gap-5 md:grid-cols-3 md:gap-6">
+        <div className="grid gap-5 md:grid-cols-2">
           <ScrollReveal className="md:col-span-1">
             <div className="flex h-full flex-col justify-between rounded-2xl border border-gray-100 bg-white p-8 shadow-sm">
               <div>
@@ -60,16 +59,61 @@ export default function Location() {
                 <address className="mt-3 not-italic text-sm leading-relaxed text-gray-500">
                   {ADDRESS_FULL}
                 </address>
+
+                {/* Jam operasional */}
+                <div className="mt-4 flex items-start gap-2.5 rounded-xl border border-gray-100 bg-gray-50 p-4">
+                  <Clock className="mt-0.5 h-4 w-4 shrink-0 text-brand" aria-hidden />
+                  <div>
+                    <p className="text-[11px] font-semibold uppercase tracking-wider text-gray-400">
+                      Jam Operasional
+                    </p>
+                    <p className="mt-1 text-sm leading-relaxed text-gray-600">
+                      {OPENING_HOURS_TEXT}
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="mt-5 flex flex-col gap-2">
+                <a
+                  href={`tel:${PHONE_NUMBER}`}
+                  className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-gray-50 px-4 py-2 text-sm font-medium text-navy-700 transition-colors hover:bg-gray-100 active:scale-95"
+                >
+                  <Phone className="h-4 w-4 text-brand" aria-hidden />
+                  {WA_DISPLAY}
+                </a>
+                <a
+                  href={waUrlWithText(WA_DEFAULT_MESSAGE)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full bg-brand px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-brand-dark active:scale-95"
+                >
+                  Chat via WhatsApp
+                </a>
               </div>
               <a
                 href={mapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group mt-6 inline-flex items-center gap-2 rounded-full bg-navy-800 px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-navy-700 active:scale-[0.98]"
+                className="group mt-4 inline-flex items-center gap-2 rounded-full bg-navy-800 px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-navy-700 active:scale-[0.98]"
               >
                 <Navigation className="h-4 w-4" aria-hidden />
                 Buka di Google Maps
               </a>
+            </div>
+          </ScrollReveal>
+
+          {/* Peta embed — kanan di desktop, bawah di mobile */}
+          <ScrollReveal className="md:col-span-1">
+            <div className="overflow-hidden rounded-2xl border border-gray-100 shadow-sm">
+              <div className="aspect-video w-full">
+                <iframe
+                  src={MAPS_EMBED_URL}
+                  loading="lazy"
+                  title="Peta lokasi Rekayasa Manufaktur di Surakarta, Jawa Tengah"
+                  className="h-full w-full rounded-t-2xl border-0"
+                  allowFullScreen
+                />
+              </div>
             </div>
           </ScrollReveal>
 

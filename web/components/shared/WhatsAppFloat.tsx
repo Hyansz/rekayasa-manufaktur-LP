@@ -42,7 +42,7 @@ export default function WhatsAppFloat() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label={`Chat ${BRAND_NAME} via WhatsApp di ${WA_DISPLAY}`}
-        className="relative flex h-10 w-10 items-center justify-center rounded-full bg-[#25D366] text-white shadow-xl shadow-emerald-500/30 transition-transform duration-300 hover:scale-110 active:scale-95"
+        className="relative flex h-12 w-12 items-center justify-center rounded-full bg-[#25D366] text-white shadow-xl shadow-emerald-500/30 transition-transform duration-300 hover:scale-110 active:scale-95"
       >
         <span
           aria-hidden

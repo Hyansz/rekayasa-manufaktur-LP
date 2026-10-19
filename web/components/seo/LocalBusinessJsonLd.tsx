@@ -5,7 +5,8 @@ import {
   ADDRESS_STREET,
   ADDRESS_AREA,
 } from "@/lib/contact";
-import { SITE_URL, OG_IMAGE } from "@/lib/seo";
+import { OG_IMAGE } from "@/lib/seo";
+import { GEO, MAPS_URL, SOCIALS, OPENING_HOURS, SITE_URL } from "@/lib/business";
 
 /**
  * Structured data LocalBusiness untuk halaman utama.
@@ -13,10 +14,9 @@ import { SITE_URL, OG_IMAGE } from "@/lib/seo";
  * terverifikasi, dan Google melarang review/review-aggregate yang direview
  * oleh pemilik situs sendiri.
  *
- * TODO(owner): lengkapi field yang belum tersedia:
- *   - "geo": koordinat lintang/bujur bengkel  → TODO(owner)
- *   - "openingHoursSpecification": jam operasional  → TODO(owner)
- *   - "sameAs": URL media sosial resmi (Instagram/Facebook) → TODO(owner)
+ * TODO(owner): Nama listing di Google Maps adalah "PT. ENTRI JAYA MAKMUR",
+ * berbeda dengan nama brand di situs ("Rekayasa Manufaktur").
+ * Nama di situs dan nama di Maps berbeda; konfirmasi konsistensi branding.
  */
 export default function LocalBusinessJsonLd() {
   const jsonLd = {
@@ -41,12 +41,21 @@ export default function LocalBusinessJsonLd() {
       "@type": "Country",
       name: "Indonesia",
     },
-    // TODO(owner): jam operasional belum tersedia.
-    // "openingHoursSpecification": [],
-    // TODO(owner): koordinat bengkel belum tersedia.
-    // "geo": { "@type": "GeoCoordinates", latitude: ..., longitude: ... },
-    // TODO(owner): media sosial resmi belum tersedia.
-    // "sameAs": [],
+    openingHoursSpecification: OPENING_HOURS
+      .filter((h) => !h.closed && h.opens && h.closes)
+      .map((h) => ({
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: h.dayOfWeek,
+        opens: h.opens!.replace(".", ""),
+        closes: h.closes!.replace(".", ""),
+      })),
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: GEO.lat,
+      longitude: GEO.lng,
+    },
+    sameAs: SOCIALS.map((s) => s.url),
+    hasMap: MAPS_URL,
   };
 
   return (

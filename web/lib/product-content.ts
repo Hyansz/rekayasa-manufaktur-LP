@@ -5,8 +5,7 @@
  * klaim harga, stok, atau angka yang belum terverifikasi.
  *
  * TODO(owner): spesifikasi/garansi pada tiap produk berasal dari data JSON.
- * Terdapat perbedaan dengan FAQ yang menyebut "garansi 5 tahun rangka &
- * 1 tahun finishing" — mohon konfirmasi lalu samakan.
+ * Semua garansi sudah disamakan jadi "3 Tahun" di data & FAQ.
  */
 
 export interface ProductContent {

@@ -16,6 +16,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import FloatingShapes from "@/components/3d/FloatingShapes";
 import ScrollReveal from "@/components/shared/ScrollReveal";
 import { cn } from "@/lib/utils";
+import { YEARS_EXPERIENCE, PROJECTS_COMPLETED } from "@/lib/business";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -95,8 +96,8 @@ const steps: ProcessStep[] = [
 ];
 
 const stats = [
-  { value: 15, suffix: "+", label: "Tahun Pengalaman" },
-  { value: 500, suffix: "+", label: "Ton Material / Tahun" },
+  { value: YEARS_EXPERIENCE, suffix: "+", label: "Tahun Berpengalaman" },
+  { value: PROJECTS_COMPLETED, suffix: "+", label: "Proyek Selesai" },
 ];
 
 const certifications = ["ISO 9001", "ISO 14001", "RoHS Compliance"];
@@ -499,6 +500,21 @@ export default function Process() {
                 <div className="process-progress h-full w-full origin-top scale-y-0 bg-brand-light" />
               </div>
 
+              {/* Stats strip — satu baris di bawah timeline, sebelum section berakhir. */}
+              <div className="process-stats mt-12 flex flex-wrap items-center justify-center gap-6 md:gap-10">
+                {stats.map((stat) => (
+                  <div key={stat.label} className="text-center">
+                    <p className="process-stat-number text-2xl font-extrabold tracking-tight text-white sm:text-3xl">
+                      {stat.value}
+                      <span className="text-brand-light">{stat.suffix}</span>
+                    </p>
+                    <p className="mt-1 text-xs font-medium uppercase tracking-wider text-white/50">
+                      {stat.label}
+                    </p>
+                  </div>
+                ))}
+              </div>
+
               <div className="space-y-20 md:space-y-32">
                 {steps.map((step, i) => (
                   <div
@@ -543,10 +559,6 @@ export default function Process() {
           </div>
 
 
-
-          {/* CTA video fasilitas + badge sertifikasi — DISEMBUNYIKAN sementara.
-              Saat footage fasilitas final sudah siap, kembalikan tombol "Lihat
-              Video Fasilitas Produksi Lengkap" + <FacilityVideoModal> di blok ini. */}
         </div>
       </div>
     </section>

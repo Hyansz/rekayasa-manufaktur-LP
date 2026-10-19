@@ -24,7 +24,7 @@ const faqs = [
   },
   {
     q: "Apakah ada garansi?",
-    a: "Ya. Setiap produk dilindungi garansi 5 tahun untuk rangka produk dan garansi 1 tahun untuk finishing. Komitmen kami pada kualitas tercermin di setiap produk.",
+    a: "Ya. Setiap produk dilindungi garansi 3 tahun. Komitmen kami pada kualitas tercermin di setiap produk.",
   },
   {
     q: "Apakah melayani pengiriman ke luar kota?",
@@ -68,7 +68,7 @@ export default function FAQ() {
                   aria-expanded={isOpen}
                   aria-controls={`faq-panel-${i}`}
                   className={cn(
-                    "flex w-full items-center justify-between gap-6 py-5 text-left sm:py-6",
+                    "flex w-full items-center justify-between gap-6 py-6 text-left sm:py-7",
                     "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2"
                   )}
                 >
@@ -93,7 +93,7 @@ export default function FAQ() {
                   )}
                 >
                   <div className="overflow-hidden">
-                    <p className="max-w-2xl pb-5 text-sm leading-relaxed text-gray-500 sm:pb-6 sm:text-[15px]">
+                    <p className="max-w-2xl pb-6 text-base leading-relaxed text-gray-500 sm:pb-7 sm:text-[15px]">
                       {faq.a}
                     </p>
                   </div>

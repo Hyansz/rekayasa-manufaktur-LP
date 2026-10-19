@@ -25,7 +25,7 @@ import { PHONE_NUMBER, WA_DISPLAY } from "@/lib/contact";
 
 const links = [
   { label: "Beranda", href: "#hero", icon: Home },
-  { label: "Koleksi", href: "#showcase", icon: Package },
+  { label: "Produk", href: "#showcase", icon: Package },
   { label: "Proses", href: "#process", icon: Cog },
   { label: "FAQ", href: "#faq", icon: HelpCircle },
   { label: "Kontak", href: "#cta", icon: Mail },

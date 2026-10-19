@@ -37,7 +37,7 @@
         { "label": "Berat", "value": "4.2 kg" },
         { "label": "Finishing", "value": "BA (Bright Annealed)" },
         { "label": "Kapasitas", "value": "120 kg" },
-        { "label": "Garansi", "value": "5 Tahun Struktural" }
+        { "label": "Garansi", "value": "3 Tahun" }
       ],
       "related": ["krs-002", "mja-001", "aks-001"]
     },
@@ -104,7 +104,7 @@
         { "label": "Height Range", "value": "70 - 120 cm" },
         { "label": "Speed", "value": "35 mm/s" },
         { "label": "Load Capacity", "value": "100 kg" },
-        { "label": "Garansi", "value": "5 Tahun Motor, 10 Tahun Frame" }
+        { "label": "Garansi", "value": "3 Tahun" }
       ],
       "related": ["krs-001", "rak-001", "aks-001"]
     },
@@ -170,7 +170,7 @@
         { "label": "Berat", "value": "22 kg" },
         { "label": "Load per Shelf", "value": "50 kg" },
         { "label": "Finishing", "value": "BA (Bright Annealed) / Powder Coat" },
-        { "label": "Garansi", "value": "10 Tahun Frame" }
+        { "label": "Garansi", "value": "3 Tahun" }
       ],
       "related": ["mja-001", "rak-002", "aks-001"]
     },
@@ -235,7 +235,7 @@
         { "label": "Socket", "value": "E27, Max 60W" },
         { "label": "Switch", "value": "Inline Dimmer" },
         { "label": "Finishing", "value": "Bead Blast + Powder Coat Black" },
-        { "label": "Garansi", "value": "2 Tahun" }
+        { "label": "Garansi", "value": "3 Tahun" }
       ],
       "related": ["mja-001", "krs-001", "aks-002"]
     },
@@ -268,7 +268,7 @@
         { "label": "Berat", "value": "0.4 kg (set 3 pcs)" },
         { "label": "Load", "value": "10 kg per hook" },
         { "label": "Finishing", "value": "BA / HL (Hairline) / Powder Coat" },
-        { "label": "Garansi", "value": "2 Tahun" }
+        { "label": "Garansi", "value": "3 Tahun" }
       ],
       "related": ["rak-002", "krs-002", "aks-001"]
     },
@@ -337,7 +337,7 @@
         { "label": "Berat", "value": "28 kg" },
         { "label": "Kapasitas", "value": "350 kg" },
         { "label": "Finishing", "value": "Powder Coat Matte" },
-        { "label": "Garansi", "value": "5 Tahun Frame" }
+        { "label": "Garansi", "value": "3 Tahun" }
       ],
       "related": ["mja-001", "rak-001", "aks-001"]
     }

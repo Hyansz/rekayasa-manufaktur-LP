@@ -1,6 +1,7 @@
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import ScrollToTop from "@/components/shared/ScrollToTop";
+import WhatsAppFloat from "@/components/shared/WhatsAppFloat";
 
 export default function SiteShell({
   children,
@@ -13,6 +14,7 @@ export default function SiteShell({
       <main className="flex-1">{children}</main>
       <Footer />
       <ScrollToTop />
+      <WhatsAppFloat />
     </div>
   );
 }
