@@ -16,7 +16,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import FloatingShapes from "@/components/3d/FloatingShapes";
 import ScrollReveal from "@/components/shared/ScrollReveal";
 import { cn } from "@/lib/utils";
-import { YEARS_EXPERIENCE, PROJECTS_COMPLETED } from "@/lib/business";
+// // import { YEARS_EXPERIENCE, PROJECTS_COMPLETED } from "@/lib/business";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -95,10 +95,8 @@ const steps: ProcessStep[] = [
   },
 ];
 
-const stats = [
-  { value: YEARS_EXPERIENCE, suffix: "+", label: "Tahun Berpengalaman" },
-  { value: PROJECTS_COMPLETED, suffix: "+", label: "Proyek Selesai" },
-];
+type Stat = { value: number; suffix: string; label: string };
+const stats: Stat[] = [];
 
 const certifications = ["ISO 9001", "ISO 14001", "RoHS Compliance"];
 
@@ -122,6 +120,9 @@ function StepMedia({ step }: { step: ProcessStep }) {
     const reduced = window.matchMedia(
       "(prefers-reduced-motion: reduce)"
     ).matches;
+    const saveData =
+      typeof navigator !== "undefined" &&
+      !!(navigator as { connection?: { saveData?: boolean } }).connection?.saveData;
 
     // Autoplay (muted) saat card masuk viewport, pause saat keluar —
     // hemat resource & kuota. IntersectionObserver native, tanpa dependency.
@@ -129,8 +130,8 @@ function StepMedia({ step }: { step: ProcessStep }) {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            // Reduced-motion atau user sudah pernah pause manual → jangan autoplay.
-            if (reduced || userPaused.current) return;
+            // Reduced-motion, save-data, atau user sudah pernah pause manual → jangan autoplay.
+            if (reduced || saveData || userPaused.current) return;
             video.play().catch(() => {});
           } else {
             video.pause();
@@ -190,6 +191,7 @@ function StepMedia({ step }: { step: ProcessStep }) {
           fill
           sizes="(min-width: 768px) 50vw, 100vw"
           loading="lazy"
+          decoding="async"
           className="object-cover"
         />
       )}

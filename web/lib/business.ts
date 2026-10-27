@@ -18,7 +18,7 @@ export const OPENING_HOURS = [
 ];
 
 export const OPENING_HOURS_TEXT =
-  "Senin–Jumat 08.00–16.00 WIB, Sabtu 08.00–14.00 WIB, Minggu Tutup";
+  "08.00–16.00 WIB";
 
 export const GEO = {
   lat: -7.5415473,

@@ -31,7 +31,8 @@ export default function WhatsAppFloat() {
   }, []);
 
   return (
-    <div
+    <aside
+      aria-label="Hubungi via WhatsApp"
       className={cn(
         "fixed bottom-5 right-5 z-[70] animate-in fade-in slide-in-from-bottom-4 slide-in-from-right-4 duration-700 delay-1000 transition-opacity duration-300",
         hidden && "pointer-events-none opacity-0"
@@ -42,6 +43,7 @@ export default function WhatsAppFloat() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label={`Chat ${BRAND_NAME} via WhatsApp di ${WA_DISPLAY}`}
+        tabIndex={-1}
         className="relative flex h-12 w-12 items-center justify-center rounded-full bg-[#25D366] text-white shadow-xl shadow-emerald-500/30 transition-transform duration-300 hover:scale-110 active:scale-95"
       >
         <span
@@ -50,6 +52,6 @@ export default function WhatsAppFloat() {
         />
         <WhatsAppIcon className="relative h-5 w-5 drop-shadow" />
       </a>
-    </div>
+    </aside>
   );
 }

@@ -41,6 +41,7 @@ function ProductCarousel({
         width={1000}
         height={1416}
         loading="lazy"
+        decoding="async"
         className="h-full w-full object-contain"
         style={{ transform: "translateZ(40px)" }}
       />
@@ -74,6 +75,7 @@ function ProductCarousel({
             width={1000}
             height={1416}
             loading="lazy"
+            decoding="async"
             draggable={false}
             className="h-full w-full shrink-0 select-none object-contain"
           />
@@ -160,7 +162,7 @@ export default function ProductShowcase() {
                   className="group block h-full"
                   aria-label={`Lihat detail ${product.name}`}
                 >
-                  <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-gray-200/80 bg-white shadow-sm transition-colors duration-150 hover:border-brand/40 hover:shadow-md">
+                  <article aria-labelledby={`product-card-${product.id}`} className="group flex h-full flex-col overflow-hidden rounded-2xl border border-gray-200/80 bg-white shadow-sm transition-colors duration-150 hover:border-brand/40 hover:shadow-md">
                     <div className="relative aspect-[4/5] overflow-hidden bg-gray-100 ring-1 ring-inset ring-black/5">
                       <ProductCarousel
                         images={
@@ -175,10 +177,10 @@ export default function ProductShowcase() {
                       </span>
                       <ProductWatermark />
                     </div>
-                    <div className="flex flex-1 flex-col p-4 sm:p-5">
-                      <h3 className="text-sm font-semibold leading-snug text-navy-800 sm:text-[15px]">
-                        {product.name}
-                      </h3>
+    <div className="flex flex-1 flex-col p-4 sm:p-5">
+      <h3 id={`product-card-${product.id}`} className="text-sm font-semibold leading-snug text-navy-800 sm:text-[15px]">
+        {product.name}
+      </h3>
                       <ul className="mt-2 space-y-1">
                         {product.highlights.slice(0, 2).map((highlight) => (
                           <li
@@ -198,15 +200,13 @@ export default function ProductShowcase() {
                         className="mt-3"
                       />
                       <div className="mt-auto flex flex-col-reverse gap-2 pt-3">
-                        <a
-                          href={`https://wa.me/6285186666865?text=Halo Rekayasa Manufaktur, saya tertarik dengan ${encodeURIComponent(product.name)}. Mohon info lebih lanjut.`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          onClick={(e) => e.stopPropagation()}
-                          className="inline-flex items-center gap-1 rounded-full border border-gray-200 bg-gray-50 px-3 py-1.5 text-[11px] font-semibold text-navy-700 transition-colors hover:bg-gray-100 active:scale-95"
+                        <button
+                          type="button"
+                          onClick={(e)=>{e.stopPropagation(); window.open(`https://wa.me/6285186666865?text=Halo Rekayasa Manufaktur, saya tertarik dengan ${encodeURIComponent(product.name)}. Mohon info lebih lanjut.`, '_blank');}}
+                          className="inline-flex items-center gap-1 rounded-full border border-gray-200 bg-gray-50 px-3 py-1.5 text-xs font-semibold text-navy-700 transition-colors hover:bg-gray-100 active:scale-95"
                         >
                           Tanya via WhatsApp
-                        </a>
+                        </button>
                       </div>
                     </div>
                   </article>

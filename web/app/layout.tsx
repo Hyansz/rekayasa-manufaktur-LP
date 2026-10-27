@@ -16,7 +16,7 @@ const inter = Inter({
 
 const title = "Furnitur Stainless Steel Custom Solo | Rekayasa Manufaktur";
 const description =
-  "Furnitur stainless steel & mild steel custom di Solo: meja, kabinet, tempat tidur susun & trolley. CNC laser cutting presisi ±0.1mm. Konsultasi gratis.";
+  "Furnitur stainless steel \u0026 mild steel custom di Solo: meja, kabinet, tempat tidur susun \u0026 trolley. CNC laser cutting presisi ±0.1mm. Konsultasi gratis.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

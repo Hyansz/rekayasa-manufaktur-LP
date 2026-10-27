@@ -1,12 +1,10 @@
 "use client";
 
 import { useEffect, useLayoutEffect, useRef } from "react";
-import Head from "next/head";
 import Image from "next/image";
 import { ArrowRight, ArrowDown } from "lucide-react";
 import gsap from "gsap";
 import { scrollToSection } from "@/lib/scroll";
-import { PROJECTS_COMPLETED, YEARS_EXPERIENCE } from "@/lib/business";
 
 const headline = "Precision in Every Piece";
 
@@ -14,7 +12,7 @@ const headline = "Precision in Every Piece";
 // f_auto,q_auto,w_1920 bikin Cloudinary otomatis pilih format & kualitas
 // terbaik, lalu resize ke 1920px supaya tetap tajam saat full-screen.
 const heroImage =
-  "https://res.cloudinary.com/dtsrtikhr/image/upload/f_auto,q_auto,w_1280/v1789530994/two-worker-making-gates-smithy_1_vw6qlr.jpg";
+  "https://res.cloudinary.com/dtsrtikhr/image/upload/f_auto,q_auto,w_1920/v1789530994/two-worker-making-gates-smithy_1_vw6qlr.jpg";
 
 // Kunci fokus foto di dalam frame (default "center").
 // Ubah mis. ke "50% 30%" kalau subjek foto ada di sepertiga atas.
@@ -38,9 +36,8 @@ export default function Hero() {
 
   useIsomorphicLayoutEffect(() => {
     const ctx = gsap.context(() => {
-      // Reduced-motion: sebagian elemen defaultnya tersembunyi via class
-      // (opacity-0) — label, CTA, stats, scroll-indicator. Teks terbesar
-      // (headline + H1) sengaja TIDAK opacity-0 agar LCP terpaint lebih awal.
+      // Reduced-motion: elemen defaultnya tersembunyi via class (opacity-0),
+      // jadi langsung set ke final state biar tidak permanen tak terlihat.
       if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
         gsap.set(
           [
@@ -56,9 +53,8 @@ export default function Hero() {
         return;
       }
 
-      // gsap.to() — starting state (translateY, & opacity-0 untuk elemen kecil)
-      // sudah ada sebagai class Tailwind statis di markup, jadi tidak ada flash
-      // teks penuh. Headline & H1 tidak opacity-0 supaya LCP muncul lebih cepat.
+      // gsap.to() — starting state (opacity-0 / translateY) sudah ada sebagai
+      // class Tailwind statis di markup, jadi tidak ada flash teks penuh.
       const tl = gsap.timeline({ defaults: { ease: "power4.out" } });
       tl.to(".hero-label", { y: 0, opacity: 1, duration: 0.7 })
         .to(
@@ -99,7 +95,6 @@ export default function Hero() {
           fill
           sizes="100vw"
           priority
-          fetchPriority="high"
           placeholder="blur"
           blurDataURL={blurDataURL}
           className="object-cover"
@@ -140,7 +135,7 @@ export default function Hero() {
                 {word.split("").map((char, ci) => (
                   <span
                     key={ci}
-                    className="char inline-block will-change-transform [transform:translateY(60px)]"
+                    className="char inline-block will-change-transform opacity-0 [transform:translateY(60px)]"
                   >
                     {char}
                   </span>
@@ -151,9 +146,9 @@ export default function Hero() {
           </p>
 
           <h1 className="hero-sub mt-6 max-w-2xl text-base leading-relaxed text-white/70 [transform:translateY(30px)] sm:text-lg">
-            Furnitur stainless steel &amp; mild steel custom di Solo — dirakit
-            dengan toleransi ±0.1mm untuk ruang yang modern, kokoh, dan
-            berkelas.
+            Furnitur stainless steel &amp; mild steel premium dengan presisi
+            teknik — dirakit dengan toleransi ±0.1mm untuk ruang yang modern,
+            kokoh, dan berkelas.
           </h1>
 
           <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row sm:items-center sm:gap-4">
@@ -177,12 +172,34 @@ export default function Hero() {
             </a>
           </div>
 
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-sm text-white/70">
-            <span className="text-xs font-medium uppercase tracking-wider text-white/30">±0.1mm Toleransi</span>
-            <span className="text-white/20" aria-hidden>·</span>
-            <span className="text-xs font-medium uppercase tracking-wider text-white/30">Custom di Solo</span>
+          <div className="hero-stats mt-12 flex items-center justify-center gap-8 border-t border-white/10 pt-6 opacity-0 [transform:translateY(20px)] sm:gap-12">
+            <div>
+              <p className="text-xl font-extrabold tracking-tight text-white sm:text-2xl">
+                ±0.1mm
+              </p>
+              <p className="mt-1 text-[11px] font-medium uppercase tracking-wider text-white/40">
+                Toleransi CNC
+              </p>
+            </div>
+            <div className="h-8 w-px bg-white/10" aria-hidden />
+            <div>
+              <p className="text-xl font-extrabold tracking-tight text-white sm:text-2xl">
+                10+
+              </p>
+              <p className="mt-1 text-[11px] font-medium uppercase tracking-wider text-white/40">
+                Tahun Pengalaman
+              </p>
+            </div>
+            <div className="h-8 w-px bg-white/10" aria-hidden />
+            <div>
+              <p className="text-xl font-extrabold tracking-tight text-white sm:text-2xl">
+                500+
+              </p>
+              <p className="mt-1 text-[11px] font-medium uppercase tracking-wider text-white/40">
+                Project Selesai
+              </p>
+            </div>
           </div>
-
         </div>
       </div>
 

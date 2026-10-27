@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { FormEvent } from "react";
 import { ArrowRight, CheckCircle2, Send, Phone, Loader2, AlertCircle } from "lucide-react";
 import Script from "next/script";
@@ -28,6 +28,33 @@ export default function FinalCTA() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [turnstileLoaded, setTurnstileLoaded] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+    if (typeof IntersectionObserver === "undefined") {
+      setTurnstileLoaded(true);
+      return;
+    }
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            setTurnstileLoaded(true);
+            observer.disconnect();
+            break;
+          }
+        }
+      },
+      { rootMargin: "300px" }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  const activateTurnstile = () => setTurnstileLoaded(true);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -102,13 +129,16 @@ export default function FinalCTA() {
 
   return (
     <section
+      ref={sectionRef}
       id="cta"
       className="relative overflow-hidden bg-gradient-to-br from-navy-900 via-navy-800 to-[#16224a] py-20 sm:py-28 md:py-36"
     >
-      <Script
-        src="https://challenges.cloudflare.com/turnstile/v0/api.js"
-        strategy="lazyOnload"
-      />
+      {turnstileLoaded && (
+        <Script
+          src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+          strategy="afterInteractive"
+        />
+      )}
       <div
         aria-hidden
         className="bg-grid pointer-events-none absolute inset-0 opacity-10"
@@ -162,6 +192,7 @@ export default function FinalCTA() {
           ) : (
             <form
               onSubmit={handleSubmit}
+              onFocusCapture={activateTurnstile}
               className="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-md sm:p-8"
             >
               <div className="grid gap-4 sm:grid-cols-2">
@@ -221,6 +252,7 @@ export default function FinalCTA() {
                   data-size="flexible"
                   role="group"
                   aria-label="Verifikasi keamanan"
+                  style={{ minHeight: 78 }}
                 />
               </div>
               {error && (

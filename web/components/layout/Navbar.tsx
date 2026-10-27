@@ -112,7 +112,7 @@ export default function Navbar() {
           <span className="rounded-lg bg-white/15 p-0.5">
             <Image
               src="/logo-rm.jpeg"
-              alt="Rekayasa Manufaktur"
+              alt=""
               width={32}
               height={32}
               className="h-8 w-8 rounded-[7px] object-cover"
@@ -201,7 +201,7 @@ export default function Navbar() {
                 <span className="rounded-xl bg-gray-100 p-1.5">
                   <Image
                     src="/logo-rm.jpeg"
-                    alt="Rekayasa Manufaktur"
+alt=""
                     width={28}
                     height={28}
                     className="h-9 w-9 rounded-lg object-cover"

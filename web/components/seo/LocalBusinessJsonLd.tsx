@@ -41,14 +41,7 @@ export default function LocalBusinessJsonLd() {
       "@type": "Country",
       name: "Indonesia",
     },
-    openingHoursSpecification: OPENING_HOURS
-      .filter((h) => !h.closed && h.opens && h.closes)
-      .map((h) => ({
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: h.dayOfWeek,
-        opens: h.opens!.replace(".", ""),
-        closes: h.closes!.replace(".", ""),
-      })),
+// TODO(owner): tambahkan openingHoursSpecification setelah pemilik mengonfirmasi hari buka; format jam "08:00" dan "16:00"
     geo: {
       "@type": "GeoCoordinates",
       latitude: GEO.lat,
